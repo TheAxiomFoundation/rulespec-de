@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-07-16",
+  "jurisdiction": "de",
+  "focus": "Germany federal tax-benefit surface: Einkommensteuer (income tax) with the splitting regime, Solidaritaetszuschlag, statutory social-insurance contributions (health, long-term care, pension, unemployment) with contribution ceilings and the Midijob transition band, Kindergeld, Kinderzuschlag, Buergergeld (SGB II), Wohngeld, and Elterngeld.",
+  "purpose": "Household-level comparison-oracle and supporting-source references for Germany Axiom coverage. None of these are legal authority.",
+  "oracle_scope": "A RuleSpec oracle must be an executable, pinned external calculator that accepts household-level inputs and returns household-level tax-benefit outputs comparable to Axiom outputs. Aggregate simulators, distributional reports, parameter documentation, and public model summaries are supporting references only, not oracles.",
+  "dual_oracle_note": "Germany is the first dual-oracle lane: every instrument in the shared surface is compared against BOTH oracles. Where the two oracles disagree with each other, the statute print adjudicates and the divergence is a finding against the losing model; where both agree against the Axiom encoding, the encoding is presumed wrong until the print says otherwise.",
+  "oracles": [
+    {
+      "id": "euromod-de",
+      "name": "EUROMOD (Germany)",
+      "url": "https://euromod-web.jrc.ec.europa.eu/",
+      "local_path": "~/Downloads/EUROMOD_J2.0/EUROMOD_RELEASES_J2.0+ (JRC public release, registration-free download; bundle not committed)",
+      "commit": null,
+      "model": "EUROMOD_RELEASES_J2.0+ (JRC, 2026-02)",
+      "dataset": "run under real-config name DE_2024_b1_2015_03_e2 with template_dataset DE_training_data (2,397 synthetic HHoT rows) per the release-wide dataset-name gating workaround (ec-jrc/JRC-EUROMOD-software-source-code#4)",
+      "role": "Household-level tax-benefit comparison oracle for Germany. Official EU tax-benefit microsimulation model (JRC/University of Essex), run per-case through the proven EuromodPlatformRunner adapter in axiom-oracles (per-household engine runs; take-up constants pinned via euromod_constant_overrides where policy spines carry stochastic take-up corrections).",
+      "coverage": [
+        "income_tax",
+        "solidarity_surcharge",
+        "health_insurance_contributions",
+        "long_term_care_contributions",
+        "pension_contributions",
+        "unemployment_insurance_contributions",
+        "child_benefit",
+        "child_supplement",
+        "citizens_benefit_sgb2",
+        "housing_benefit",
+        "household_disposable_income"
+      ],
+      "authority": "bundle_in_hand_adapter_proven",
+      "availability_check": {
+        "checked_at": "2026-07-16",
+        "status": "bundle_in_hand_adapter_proven",
+        "detail": "The J2.0+ release ships DE systems DE_2007 through DE_2025 (19 systems). The per-country readiness matrix (axiom_oracles/data/euromod_country_readiness.json) records DE as ok_real_config_workaround with run_dataset DE_2024_b1_2015_03_e2. The EuromodPlatformRunner adapter and the Rosetta engine environment on this machine are proven from the UKMOD, Belgium, and Denmark lanes. DE-specific suites pending.",
+        "systems": "DE_2007-DE_2025",
+        "validation_system": "DE_2025 (rules in force 30 June 2025)"
+      }
+    },
+    {
+      "id": "gettsim",
+      "name": "GETTSIM",
+      "url": "https://github.com/iza-institute-of-labor-economics/gettsim",
+      "local_path": null,
+      "commit": null,
+      "model": "gettsim 1.2.1 (PyPI; pure Python, date-parameterized policy environment)",
+      "dataset": "none required - per-case hypothetical rows via InputData.df_and_mapper; required input columns are discovered from the framework's own input template (MainTarget.templates.input_data_dtypes.tree), add-until-clean",
+      "role": "Second, independent household-level comparison oracle for Germany. GETTSIM (German Taxes and Transfers SIMulator; IZA and academic consortium) computes German taxes and transfers for any policy date. Being pure Python with an explicit DAG, it is fast (seconds per grid), deterministic, and free of take-up randomness - the complement to the EUROMOD engine path.",
+      "coverage": [
+        "income_tax",
+        "solidarity_surcharge",
+        "health_insurance_contributions",
+        "long_term_care_contributions",
+        "pension_contributions",
+        "unemployment_insurance_contributions",
+        "child_benefit",
+        "child_supplement",
+        "citizens_benefit_sgb2",
+        "housing_benefit",
+        "parental_leave_benefit",
+        "advance_child_maintenance",
+        "household_disposable_income"
+      ],
+      "authority": "verified_live_adapter_pending",
+      "availability_check": {
+        "checked_at": "2026-07-16",
+        "status": "verified_live_adapter_pending",
+        "detail": "gettsim 1.2.1 verified live on this machine at policy date 2025-06-01: a single-worker case at EUR 4,000/month gross returned employee contributions exactly matching statute by hand (health 342.00 = 8.55 percent incl. average Zusatzbeitrag halves; pension 372.00 = 9.3 percent; unemployment 52.00 = 1.3 percent; long-term care 96.00 = 2.4 percent childless), annual income tax 6,433, Kindergeld and Soli correctly zero. The axiom-oracles adapter (template-discovered inputs, nested mapper, per-target trees) is pending.",
+        "validation_system": "policy_date 2025-06-30 (aligned to the EUROMOD DE_2025 snapshot)"
+      }
+    }
+  ]
+}
