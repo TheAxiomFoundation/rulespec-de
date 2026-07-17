@@ -1,0 +1,26 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-3/346
+  summary: '§ 346 SGB III: Die Arbeitslosenversicherungsbeiträge werden von den versicherungspflichtig Beschäftigten und den Arbeitgebern je zur Hälfte getragen (Absatz 1). Encodiert ist der hälftige Arbeitnehmeranteil; der Gesamtbeitrag ist Modul-Input.'
+rules:
+- name: employee_unemployment_insurance_contribution_share
+  kind: derived
+  entity: Person
+  dtype: Money
+  unit: EUR
+  period: Month
+  source: § 346 Abs. 1 SGB III
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/sgb-3/346
+          excerpt: Die Beiträge werden von den versicherungspflichtig Beschäftigten und den Arbeitgebern je zur Hälfte getragen.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: total_unemployment_insurance_contribution / 2

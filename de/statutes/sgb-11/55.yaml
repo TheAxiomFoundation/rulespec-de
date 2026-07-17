@@ -1,0 +1,68 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-11/55
+  summary: '§ 55 SGB XI (soziale Pflegeversicherung): Der gesetzliche Beitragssatz beträgt bundeseinheitlich 3,4 Prozent (Absatz 1 Satz 1); für Kinderlose erhöht er sich um 0,6 Beitragssatzpunkte (Absatz 3 Satz 1) und für Eltern reduziert er sich ab dem zweiten bis zum fünften Kind um je 0,25 Beitragssatzpunkte bis zum 25. Lebensjahr des Kindes (Absatz 3 Satz 4). Der zum 1.1.2025 durch Rechtsverordnung nach Absatz 1a auf 3,6 Prozent angehobene operative Beitragssatz ist in dieser Corpus-Release nicht enthalten (siehe bulk/ENCODING-GAPS.md); encodiert ist der gesetzliche Satz nach Absatz 1 Satz 1.'
+rules:
+- name: general_contribution_rate
+  kind: parameter
+  dtype: Rate
+  source: § 55 Abs. 1 Satz 1 SGB XI
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-11/55
+          excerpt: Der Beitragssatz beträgt, vorbehaltlich des Satzes 2, bundeseinheitlich 3,4 Prozent der beitragspflichtigen Einnahmen der Mitglieder
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '0.034'
+- name: childless_surcharge_rate_points
+  kind: parameter
+  dtype: Rate
+  source: § 55 Abs. 3 Satz 1 SGB XI
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-11/55
+          excerpt: einen Beitragszuschlag in Höhe von 0,6 Beitragssatzpunkten (Beitragszuschlag für Kinderlose)
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '0.006'
+- name: per_child_discount_rate_points
+  kind: parameter
+  dtype: Rate
+  source: § 55 Abs. 3 Satz 4 SGB XI
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-11/55
+          excerpt: um jeweils einen Abschlag in Höhe von 0,25 Beitragssatzpunkten
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '0.0025'
+- name: child_discount_age_limit_years
+  kind: parameter
+  dtype: Count
+  source: § 55 Abs. 3 Satz 4 SGB XI
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-11/55
+          excerpt: das jeweilige Kind das 25. Lebensjahr vollendet hat
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '25'
