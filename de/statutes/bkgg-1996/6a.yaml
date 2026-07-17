@@ -1,0 +1,103 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/bkgg-1996/6a
+  summary: 'BKGG § 6a (Kinderzuschlag): Mindesteinkommen der Eltern 900 € (600 € Alleinerziehende) (Absatz 1 Nr. 2); Sofortzuschlag 25 € (Absatz 2); Minderung um 45 % des zu berücksichtigenden Kindeseinkommens (Absatz 3); Vermögensfreigrenzen 40.000 € / 15.000 € (Absatz 3). Der Höchstbetrag ist an das sächliche Existenzminimum gekoppelt (297 € in 2025) und nicht in dieser Release enthalten (bulk/ENCODING-GAPS.md).'
+rules:
+- name: minimum_parental_income_couple
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BKGG § 6a Abs. 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/bkgg-1996/6a
+          excerpt: in Höhe von mindestens 900 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '900'
+- name: minimum_parental_income_single
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BKGG § 6a Abs. 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/bkgg-1996/6a
+          excerpt: wenn sie alleinerziehend sind, in Höhe von mindestens 600 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '600'
+- name: immediate_supplement
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BKGG § 6a Abs. 2 Satz 4
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/bkgg-1996/6a
+          excerpt: erhöht sich um einen Sofortzuschlag in Höhe von 25 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '25'
+- name: child_income_withdrawal_rate_percent
+  kind: parameter
+  dtype: Decimal
+  source: BKGG § 6a Abs. 3 Satz 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/bkgg-1996/6a
+          excerpt: Der Kinderzuschlag wird um 45 Prozent des zu berücksichtigenden Einkommens des Kindes monatlich gemindert.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '45'
+- name: asset_allowance_claimant
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BKGG § 6a Abs. 3 Satz 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/bkgg-1996/6a
+          excerpt: wenn es 40 000 Euro für die berechtigte Person
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '40000'
+- name: asset_allowance_additional_member
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BKGG § 6a Abs. 3 Satz 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/bkgg-1996/6a
+          excerpt: 15 000 Euro für jedes weitere Mitglied der Bedarfsgemeinschaft übersteigt
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '15000'
