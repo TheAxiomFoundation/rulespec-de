@@ -1,0 +1,20 @@
+- name: mindestunterhalt_2025
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:regulations/minuhv/1#minimum_maintenance_first_age_stage: 482
+    de:regulations/minuhv/1#minimum_maintenance_second_age_stage: 554
+    de:regulations/minuhv/1#minimum_maintenance_third_age_stage: 649
+- name: mindestunterhalt_2026
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input: {}
+  output:
+    de:regulations/minuhv/1#minimum_maintenance_first_age_stage: 486
+    de:regulations/minuhv/1#minimum_maintenance_second_age_stage: 558
+    de:regulations/minuhv/1#minimum_maintenance_third_age_stage: 653

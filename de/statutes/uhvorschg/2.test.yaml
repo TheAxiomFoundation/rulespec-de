@@ -1,0 +1,10 @@
+- name: advance_maintenance_first_stage_2025
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input:
+    de:statutes/uhvorschg/2#input.minimum_maintenance_for_age_stage: 482
+    de:statutes/uhvorschg/2#input.first_child_kindergeld: 255
+  output:
+    de:statutes/uhvorschg/2#advance_maintenance_amount: 227
