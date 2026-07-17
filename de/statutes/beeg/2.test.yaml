@@ -1,0 +1,15 @@
+- name: elterngeld_parameters
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/beeg/2#maximum_monthly_amount: 1800
+    de:statutes/beeg/2#minimum_monthly_amount: 300
+    de:statutes/beeg/2#pre_birth_income_cap: 2770
+    de:statutes/beeg/2#lower_income_band_threshold: 1000
+    de:statutes/beeg/2#upper_income_band_threshold: 1200
+    de:statutes/beeg/2#base_replacement_rate_percent: 67
+    de:statutes/beeg/2#minimum_replacement_rate_percent: 65
+    de:statutes/beeg/2#maximum_replacement_rate_percent: 100

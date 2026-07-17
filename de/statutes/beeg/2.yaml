@@ -1,0 +1,133 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/beeg/2
+  summary: 'BEEG § 2 (Höhe des Elterngeldes): Basisersatzrate 67 % des Vorgeburts-einkommens (Absatz 1), Höchstbetrag 1.800 € und Mindestbetrag 300 € (Absatz 1/4), Anrechnungs-Höchsteinkommen 2.770 € (Absatz 3); in der Geringverdienerzone steigt die Rate bis 100 % (unter 1.000 €), in der oberen Zone sinkt sie bis 65 % (über 1.200 €) (Absatz 2). Raten als X/100 encodiert.'
+rules:
+- name: base_replacement_rate_percent
+  kind: parameter
+  dtype: Decimal
+  source: BEEG § 2 Abs. 1 Satz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: Elterngeld wird in Höhe von 67 Prozent des Einkommens aus Erwerbstätigkeit vor der Geburt des Kindes gewährt.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '67'
+- name: maximum_monthly_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BEEG § 2 Abs. 1 Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: Es wird bis zu einem Höchstbetrag von 1 800 Euro monatlich für volle Lebensmonate gezahlt
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '1800'
+- name: minimum_monthly_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BEEG § 2 Abs. 4 Satz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: Elterngeld wird mindestens in Höhe von 300 Euro gezahlt.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '300'
+- name: pre_birth_income_cap
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BEEG § 2 Abs. 3 Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: ist dabei höchstens der Betrag von 2 770 Euro anzusetzen.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '2770'
+- name: lower_income_band_threshold
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BEEG § 2 Abs. 2 Satz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: geringer als 1 000 Euro war
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '1000'
+- name: upper_income_band_threshold
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: BEEG § 2 Abs. 2 Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: höher als 1 200 Euro war
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '1200'
+- name: minimum_replacement_rate_percent
+  kind: parameter
+  dtype: Decimal
+  source: BEEG § 2 Abs. 2 Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: sinkt der Prozentsatz von 67 Prozent um 0,1 Prozentpunkte für je 2 Euro, um die dieses Einkommen den Betrag von 1 200 Euro überschreitet, auf bis zu 65 Prozent
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '65'
+- name: maximum_replacement_rate_percent
+  kind: parameter
+  dtype: Decimal
+  source: BEEG § 2 Abs. 2 Satz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/beeg/2
+          excerpt: für je 2 Euro, um die dieses Einkommen den Betrag von 1 000 Euro unterschreitet, auf bis zu 100 Prozent
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '100'
