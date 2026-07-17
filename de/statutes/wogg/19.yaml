@@ -1,0 +1,39 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/wogg/19
+  summary: 'WoGG § 19 (Höhe des Wohngeldes): Faktor 1,15 der Grundformel 1,15 · (M − (a + b·M + c·Y)·Y) (Absatz 1) und der Zuschlag von 65 € je Haushaltsmitglied ab dem 13. (Absatz 3). Die haushaltsgrößenabhängigen Koeffizienten a, b, c stehen in Anlage 2 WoGG (Tabellenwerte) und sind hier nicht encodiert; die Grundformel bleibt daher unvollständig (bulk/ENCODING-GAPS.md).'
+rules:
+- name: wohngeld_formula_factor
+  kind: parameter
+  dtype: Decimal
+  source: WoGG § 19 Abs. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/wogg/19
+          excerpt: 1,15 · (M
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '1.15'
+- name: additional_household_member_increment
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: WoGG § 19 Abs. 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/wogg/19
+          excerpt: das nach den Absätzen 1 und 2 berechnete monatliche Wohngeld um jeweils 65 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '65'
