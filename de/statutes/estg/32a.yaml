@@ -1,0 +1,72 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/estg/32a
+  summary: 'EStG § 32a (Einkommensteuertarif), Fassung ab dem Veranlagungszeitraum 2026: Grundfreibetrag 12 348 Euro und die Tarifzonen-Obergrenzen 17 799 / 69 878 / 277 825 Euro. Die vollständige progressive Tarifformel (Zusatzkonstanten 1 400 / 2 397 / 1 034,87 / 11 135,63 / 19 470,38 und Grenzsteuersätze 0,42 / 0,45) ist NICHT encodiert: diese Konstanten stehen zwar wörtlich in Absatz 1, werden aber vom numerischen Grounding-Extraktor wegen der deutschen Tausender-Leerzeichen und der «•»-Multiplikation nicht erkannt (siehe bulk/ENCODING-GAPS.md). Encodiert sind die grundfähigen Zonengrenzen des 2026er Textes; die 2025er Konstanten (Grundfreibetrag 12 096 Euro u.a.) sind ohnehin nicht in dieser Release.'
+rules:
+- name: grundfreibetrag
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 32a Abs. 1 Satz 2 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/32a
+          excerpt: bis 12 348 Euro (Grundfreibetrag)
+  versions:
+  - effective_from: '2026-01-01'
+    formula: '12348'
+- name: progressive_zone_2_upper_bound
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 32a Abs. 1 Satz 2 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/32a
+          excerpt: von 12 349 Euro bis 17 799 Euro
+  versions:
+  - effective_from: '2026-01-01'
+    formula: '17799'
+- name: progressive_zone_3_upper_bound
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 32a Abs. 1 Satz 2 Nr. 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/32a
+          excerpt: von 17 800 Euro bis 69 878 Euro
+  versions:
+  - effective_from: '2026-01-01'
+    formula: '69878'
+- name: proportional_zone_4_upper_bound
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 32a Abs. 1 Satz 2 Nr. 4
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/32a
+          excerpt: von 69 879 Euro bis 277 825 Euro
+  versions:
+  - effective_from: '2026-01-01'
+    formula: '277825'
