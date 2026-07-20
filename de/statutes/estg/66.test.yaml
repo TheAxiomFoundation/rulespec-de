@@ -1,0 +1,8 @@
+- name: kindergeld_is_259_per_child_per_month
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/estg/66#kindergeld_monthly_amount_per_child: 259
