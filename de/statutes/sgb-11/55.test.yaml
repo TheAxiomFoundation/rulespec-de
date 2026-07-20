@@ -1,0 +1,11 @@
+- name: pv_statutory_base_rate_and_surcharge_abatement
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/sgb-11/55#general_contribution_rate: 0.034
+    de:statutes/sgb-11/55#childless_surcharge_rate_points: 0.006
+    de:statutes/sgb-11/55#per_child_discount_rate_points: 0.0025
+    de:statutes/sgb-11/55#child_discount_age_limit_years: 25

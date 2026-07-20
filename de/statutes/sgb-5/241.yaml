@@ -1,0 +1,26 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-5/241
+    source_sha256: ae54e771797483dfa54c06c57e8dab82c106bd7d3ea0104049eb40eb208e3b7b
+  summary: |-
+    Der allgemeine Beitragssatz beträgt 14,6 Prozent der beitragspflichtigen Einnahmen der Mitglieder.
+rules:
+  - name: allgemeiner_beitragssatz
+    kind: parameter
+    dtype: Rate
+    source: SGB V § 241
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/statute/sgb-5/241
+              excerpt: "14,6 Prozent der beitragspflichtigen Einnahmen"
+    versions:
+      - effective_from: '0001-01-01'
+        formula: |-
+          0.146

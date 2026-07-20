@@ -1,0 +1,9 @@
+- name: rv_employee_bears_half_of_total_contribution
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input:
+    de:statutes/sgb-6/168#input.total_pension_insurance_contribution: 744
+  output:
+    de:statutes/sgb-6/168#employee_pension_insurance_contribution_share: 372

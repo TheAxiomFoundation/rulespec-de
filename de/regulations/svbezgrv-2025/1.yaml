@@ -1,0 +1,46 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/svbezgrv-2025/1
+    source_sha256: c2ab73a6ea8b7573c7073a340e2ec0714b44a50e70390d62cb46f741da614694
+  summary: |-
+    Die Bezugsgröße nach § 18 Absatz 1 des Vierten Buches Sozialgesetzbuch für das Jahr 2025 beträgt 44 940 Euro. Umgerechnet auf den Monat ergeben sich 3 745 Euro.
+rules:
+  - name: annual_reference_value
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: EUR
+    source: SVBezGrV 2025 § 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/1
+              excerpt: "für das Jahr 2025 beträgt 44 940 Euro"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          44940
+  - name: monthly_reference_value
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: EUR
+    source: SVBezGrV 2025 § 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/1
+              excerpt: "Umgerechnet auf den Monat ergeben sich 3 745 Euro"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          3745

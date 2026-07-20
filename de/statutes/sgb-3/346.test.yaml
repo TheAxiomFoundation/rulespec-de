@@ -1,0 +1,9 @@
+- name: av_employee_bears_half_of_total_contribution
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input:
+    de:statutes/sgb-3/346#input.total_unemployment_insurance_contribution: 100
+  output:
+    de:statutes/sgb-3/346#employee_unemployment_insurance_contribution_share: 50
