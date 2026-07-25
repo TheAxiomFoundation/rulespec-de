@@ -1,0 +1,77 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/minuhv/1
+  summary: 'MinUhV § 1: monatlicher Mindestunterhalt minderjähriger Kinder (§ 1612a BGB) je Altersstufe, mit den vom Verordnungstext ausdrücklich datierten Werten für 2025 und 2026.'
+rules:
+- name: minimum_maintenance_first_age_stage
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: MinUhV § 1 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 482 Euro ab dem 1. Januar 2025
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 486 Euro ab dem 1. Januar 2026
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '482'
+  - effective_from: '2026-01-01'
+    formula: '486'
+- name: minimum_maintenance_second_age_stage
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: MinUhV § 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 554 Euro ab dem 1. Januar 2025
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 558 Euro ab dem 1. Januar 2026
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '554'
+  - effective_from: '2026-01-01'
+    formula: '558'
+- name: minimum_maintenance_third_age_stage
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: MinUhV § 1 Nr. 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 649 Euro ab dem 1. Januar 2025
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 653 Euro ab dem 1. Januar 2026
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '649'
+  - effective_from: '2026-01-01'
+    formula: '653'

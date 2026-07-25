@@ -1,0 +1,31 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/uhvorschg/2
+  summary: 'UhVorschG § 2 (Umfang der Unterhaltsleistung): Die Leistung wird in Höhe des Mindestunterhalts nach § 1612a BGB gezahlt (Absatz 1) und mindert sich um das für ein erstes Kind zu zahlende Kindergeld nach § 66 EStG (Absatz 2). Mindestunterhalt (MinUhV) und Kindergeld sind Modul-Inputs.'
+rules:
+- name: advance_maintenance_amount
+  kind: derived
+  entity: Person
+  dtype: Money
+  unit: EUR
+  period: Month
+  source: UhVorschG § 2 Abs. 1 und 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/uhvorschg/2
+          excerpt: Die Unterhaltsleistung wird monatlich in Höhe des sich nach § 1612a Absatz 1 Satz 3 Nummer 1, 2 oder 3 des Bürgerlichen Gesetzbuchs ergebenden monatlichen Mindestunterhalts gezahlt.
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/uhvorschg/2
+          excerpt: mindert sich die Unterhaltsleistung um das für ein erstes Kind zu zahlende Kindergeld nach § 66 des Einkommensteuergesetzes
+  versions:
+  - effective_from: '0001-01-01'
+    formula: max(0, minimum_maintenance_for_age_stage - first_child_kindergeld)
