@@ -1,0 +1,29 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-3/341
+  summary: >-
+    § 341 SGB III (Arbeitslosenversicherung): Der Beitragssatz beträgt 2,6
+    Prozent der Beitragsbemessungsgrundlage (Absatz 2). Encodiert wird der
+    gesetzliche Beitragssatz; die Beitragsbemessungsgrenze ist die der
+    allgemeinen Rentenversicherung (Absatz 4; Wert aus SVBezGrV 2025) und die
+    kalendertägliche 7/30/360-Umrechnung (Absatz 3) ist für die monatliche
+    Beitragsparität nicht erforderlich und daher nicht encodiert.
+rules:
+  - name: contribution_rate
+    kind: parameter
+    dtype: Rate
+    source: § 341 Abs. 2 SGB III
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/statute/sgb-3/341
+              excerpt: "Der Beitragssatz beträgt 2,6 Prozent."
+    versions:
+      - effective_from: '0001-01-01'
+        formula: '0.026'

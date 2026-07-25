@@ -1,0 +1,9 @@
+- name: allgemeiner_beitragssatz_is_fourteen_point_six_percent
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input: {}
+  output:
+    de:statutes/sgb-5/241#allgemeiner_beitragssatz: 0.146

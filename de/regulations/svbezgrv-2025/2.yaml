@@ -1,0 +1,85 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/svbezgrv-2025/2
+    source_sha256: becd570c345b18381e5edd54a33754085b0ba1f80e879de6af961c07a9192bf4
+  summary: |-
+    § 2 SVBezGrV 2025 setzt die Jahresarbeitsentgeltgrenze nach § 6 Absatz 6 SGB V für 2025 auf 73 800 Euro (monatlich 6 150 Euro) und die Jahresarbeitsentgeltgrenze nach § 6 Absatz 7 SGB V für 2025 auf 66 150 Euro (monatlich 5 512,50 Euro) fest.
+rules:
+  - name: annual_earnings_limit_under_sgb_v_section_6_6
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Year
+    source: SVBezGrV 2025 § 2 Abs. 1 Satz 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/2
+              excerpt: "für das Jahr 2025 auf 73 800 Euro festgesetzt"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          73800
+
+  - name: monthly_earnings_limit_under_sgb_v_section_6_6
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Month
+    source: SVBezGrV 2025 § 2 Abs. 1 Satz 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/2
+              excerpt: "Umgerechnet auf den Monat ergeben sich 6 150 Euro"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          6150
+
+  - name: annual_earnings_limit_under_sgb_v_section_6_7
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Year
+    source: SVBezGrV 2025 § 2 Abs. 2 Satz 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/2
+              excerpt: "für das Jahr 2025 auf 66 150 Euro festgesetzt"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          66150
+
+  - name: monthly_earnings_limit_under_sgb_v_section_6_7
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Month
+    source: SVBezGrV 2025 § 2 Abs. 2 Satz 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/2
+              excerpt: "Umgerechnet auf den Monat ergeben sich 5 512,50 Euro"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          5512.50

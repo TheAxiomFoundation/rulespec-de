@@ -1,0 +1,12 @@
+# Companion fixtures for § 341 SGB III (Arbeitslosenversicherung Beitragssatz).
+# The statute states a single Beitragssatz of 2,6 Prozent (Absatz 2); this is
+# a constant with no factual inputs. Validated at the 2025 policy state
+# (rate unchanged 2025->2026).
+- name: unemployment_insurance_contribution_rate_is_2_6_percent
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/sgb-3/341#contribution_rate: 0.026

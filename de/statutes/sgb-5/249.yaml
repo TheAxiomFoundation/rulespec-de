@@ -1,0 +1,26 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-5/249
+  summary: '§ 249 SGB V: Versicherungspflichtig Beschäftigte und ihre Arbeitgeber tragen die nach dem Arbeitsentgelt bemessenen Krankenversicherungsbeiträge jeweils zur Hälfte (Absatz 1). Encodiert ist der hälftige Arbeitnehmeranteil; der Gesamtbeitrag ist Modul-Input.'
+rules:
+- name: insured_health_insurance_contribution_share
+  kind: derived
+  entity: Person
+  dtype: Money
+  unit: EUR
+  period: Month
+  source: § 249 Abs. 1 SGB V
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/sgb-5/249
+          excerpt: und ihre Arbeitgeber tragen die nach dem Arbeitsentgelt zu bemessenden Beiträge jeweils zur Hälfte.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: total_health_insurance_contribution / 2

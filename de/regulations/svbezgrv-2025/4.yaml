@@ -1,0 +1,84 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/svbezgrv-2025/4
+  summary: |-
+    § 4 setzt die Beitragsbemessungsgrenze nach § 159 SGB VI für 2025 fest: allgemeine Rentenversicherung 96 600 Euro jährlich / 8 050 Euro monatlich; knappschaftliche Rentenversicherung 118 800 Euro jährlich / 9 900 Euro monatlich. Anlage 2 SGB VI wird um den Zeitraum 1.1.2025–31.12.2025 und die jeweiligen Jahresbeträge ergänzt.
+rules:
+  - name: allgemeine_rentenversicherung_beitragsbemessungsgrenze_annual
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Year
+    source: SVBezGrV 2025 § 4 Absatz 1 Nummer 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/4
+              excerpt: "in der allgemeinen Rentenversicherung auf 96 600 Euro jährlich"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          96600
+
+  - name: allgemeine_rentenversicherung_beitragsbemessungsgrenze_monthly
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Month
+    source: SVBezGrV 2025 § 4 Absatz 1 Nummer 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/4
+              excerpt: "umgerechnet auf den Monat ergeben sich 8 050 Euro"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          8050
+
+  - name: knappschaftliche_rentenversicherung_beitragsbemessungsgrenze_annual
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Year
+    source: SVBezGrV 2025 § 4 Absatz 1 Nummer 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/4
+              excerpt: "in der knappschaftlichen Rentenversicherung auf 118 800 Euro jährlich"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          118800
+
+  - name: knappschaftliche_rentenversicherung_beitragsbemessungsgrenze_monthly
+    kind: parameter
+    dtype: Money
+    unit: EUR
+    period: Month
+    source: SVBezGrV 2025 § 4 Absatz 1 Nummer 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: de/regulation/svbezgrv-2025/4
+              excerpt: "umgerechnet auf den Monat ergeben sich 9 900 Euro"
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          9900
