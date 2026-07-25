@@ -1,0 +1,23 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-2/20
+  summary: 'SGB II § 20 (Regelbedarf): Alleinstehende/Alleinerziehende erhalten Regelbedarfsstufe 1; sonstige erwerbsfähige Angehörige unter 18 Jahren Regelbedarfsstufe 4, sonst Regelbedarfsstufe 3 (Absatz 2); zwei volljährige Partner je Regelbedarfsstufe 2 (Absatz 4). Encodiert ist die Altersgrenze der Stufenzuordnung; die Beträge stehen in RBEG/RBSFV.'
+rules:
+- name: adult_regelbedarf_age_threshold
+  kind: parameter
+  dtype: Count
+  source: SGB II § 20 Abs. 2 Satz 2 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-2/20
+          excerpt: sofern sie das 18. Lebensjahr noch nicht vollendet haben
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '18'

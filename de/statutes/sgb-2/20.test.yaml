@@ -1,0 +1,8 @@
+- name: regelbedarf_age_threshold
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/sgb-2/20#adult_regelbedarf_age_threshold: 18

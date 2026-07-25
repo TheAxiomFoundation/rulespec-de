@@ -1,0 +1,104 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/rbeg-2021/8
+  summary: 'RBEG § 8: die Regelbedarfsstufen zum 1. Januar 2021 (446/401/357/373/309/283 €). Dies sind die gesetzlichen Basiswerte 2021; die für 2025 geltenden fortgeschriebenen Beträge (Regelbedarfsstufe 1 = 563 €) ergeben sich aus der Regelbedarfsstufen-Fortschreibungsverordnung 2025, die NICHT in dieser Corpus-Release enthalten ist (bulk/ENCODING-GAPS.md).'
+rules:
+- name: regelbedarf_2021_stufe_1
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: RBEG § 8 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 1 auf 446 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '446'
+- name: regelbedarf_2021_stufe_2
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: RBEG § 8 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 2 auf 401 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '401'
+- name: regelbedarf_2021_stufe_3
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: RBEG § 8 Nr. 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 3 auf 357 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '357'
+- name: regelbedarf_2021_stufe_4
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: RBEG § 8 Nr. 4
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 4 auf 373 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '373'
+- name: regelbedarf_2021_stufe_5
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: RBEG § 8 Nr. 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 5 auf 309 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '309'
+- name: regelbedarf_2021_stufe_6
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: RBEG § 8 Nr. 6
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 6 auf 283 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '283'
