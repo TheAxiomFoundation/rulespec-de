@@ -1,0 +1,81 @@
+- name: first_age_stage_2025_amount
+  period: 2025-01
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: true
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_first_age_stage: 482
+- name: second_age_stage_2025_amount
+  period: 2025-01
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: true
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_second_age_stage: 554
+- name: third_age_stage_2025_amount
+  period: 2025-01
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: true
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_third_age_stage: 649
+- name: first_age_stage_2026_amount
+  period: 2026-01
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: true
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_first_age_stage: 486
+- name: second_age_stage_2026_amount
+  period: 2026-01
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: true
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_second_age_stage: 558
+- name: third_age_stage_2026_amount
+  period: 2026-01
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: true
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_third_age_stage: 653
+- name: auto_zero_monthly_minimum_support_first_age_stage
+  period:
+    period_kind: month
+    start: '2025-01-01'
+    end: '2025-01-31'
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_first_age_stage: 0
+- name: auto_zero_monthly_minimum_support_second_age_stage
+  period:
+    period_kind: month
+    start: '2025-01-01'
+    end: '2025-01-31'
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_second_age_stage: 0
+- name: auto_zero_monthly_minimum_support_third_age_stage
+  period:
+    period_kind: month
+    start: '2025-01-01'
+    end: '2025-01-31'
+  input:
+    de:regulations/minuhv/1#input.child_is_in_first_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_second_age_stage_under_section_1612a: false
+    de:regulations/minuhv/1#input.child_is_in_third_age_stage_under_section_1612a: false
+  output:
+    de:regulations/minuhv/1#monthly_minimum_support_third_age_stage: 0

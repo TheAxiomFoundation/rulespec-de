@@ -1,0 +1,164 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/minuhv/1
+    source_sha256: dc5fe67760f3cd298fd3ce3c7fa2625e4ea1bb60216be9cf05353316c44c3b7a
+  summary: Der monatliche Mindestunterhalt beträgt in der ersten Altersstufe 482 Euro
+    ab dem 1. Januar 2025 und 486 Euro ab dem 1. Januar 2026, in der zweiten Altersstufe
+    554 Euro und 558 Euro sowie in der dritten Altersstufe 649 Euro und 653 Euro.
+rules:
+- name: minimum_support_first_age_stage
+  kind: parameter
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MinUhV § 1 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 482 Euro ab dem 1. Januar 2025
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 486 Euro ab dem 1. Januar 2026
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '482'
+  - effective_from: '2026-01-01'
+    formula: '486'
+- name: minimum_support_second_age_stage
+  kind: parameter
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MinUhV § 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 554 Euro ab dem 1. Januar 2025
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 558 Euro ab dem 1. Januar 2026
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '554'
+  - effective_from: '2026-01-01'
+    formula: '558'
+- name: minimum_support_third_age_stage
+  kind: parameter
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MinUhV § 1 Nr. 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 649 Euro ab dem 1. Januar 2025
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 653 Euro ab dem 1. Januar 2026
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '649'
+  - effective_from: '2026-01-01'
+    formula: '653'
+- name: monthly_minimum_support_first_age_stage
+  kind: derived
+  entity: Person
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MinUhV § 1 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: in der ersten Altersstufe (§ 1612a Absatz 1 Satz 3 Nummer 1 des
+            Bürgerlichen Gesetzbuchs)
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 1. in der ersten Altersstufe (§ 1612a Absatz 1 Satz 3 Nummer 1
+            des Bürgerlichen Gesetzbuchs) 482 Euro ab dem 1. Januar 2025 und 486 Euro
+            ab dem 1. Januar 2026,
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'if child_is_in_first_age_stage_under_section_1612a: minimum_support_first_age_stage
+      else: 0'
+- name: monthly_minimum_support_second_age_stage
+  kind: derived
+  entity: Person
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MinUhV § 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: in der zweiten Altersstufe (§ 1612a Absatz 1 Satz 3 Nummer 2 des
+            Bürgerlichen Gesetzbuchs)
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 2. in der zweiten Altersstufe (§ 1612a Absatz 1 Satz 3 Nummer 2
+            des Bürgerlichen Gesetzbuchs) 554 Euro ab dem 1. Januar 2025 und 558 Euro
+            ab dem 1. Januar 2026,
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'if child_is_in_second_age_stage_under_section_1612a: minimum_support_second_age_stage
+      else: 0'
+- name: monthly_minimum_support_third_age_stage
+  kind: derived
+  entity: Person
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MinUhV § 1 Nr. 3
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: in der dritten Altersstufe (§ 1612a Absatz 1 Satz 3 Nummer 3 des
+            Bürgerlichen Gesetzbuchs)
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/minuhv/1
+          excerpt: 3. in der dritten Altersstufe (§ 1612a Absatz 1 Satz 3 Nummer 3
+            des Bürgerlichen Gesetzbuchs) 649 Euro ab dem 1. Januar 2025 und 653 Euro
+            ab dem 1. Januar 2026.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'if child_is_in_third_age_stage_under_section_1612a: minimum_support_third_age_stage
+      else: 0'
