@@ -15,6 +15,11 @@ on:
         required: false
         type: string
         default: "12"
+      require-complete-source-unit:
+        description: "Enforce complete source-unit coverage (lane default: on)."
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   # Allows open_pr to classify a missing matrix artifact. The called encode
@@ -28,6 +33,7 @@ jobs:
     with:
       citations: ${{ inputs.citations }}
       limit: ${{ inputs.limit }}
+      require-complete-source-unit: ${{ inputs.require-complete-source-unit }}
     # Reusable-workflow call jobs cannot declare an environment, so these are
     # org secrets explicitly restricted to the country repositories.
     secrets:
