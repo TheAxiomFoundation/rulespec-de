@@ -1,0 +1,95 @@
+{
+  "applied_files": [
+    {
+      "path": "de/regulations/svbezgrv-2025/2.yaml",
+      "sha256": "0f3d3c886eda1006c5ddb00e1f75433d6304757ee7444ac892200865954a203d"
+    },
+    {
+      "path": "de/regulations/svbezgrv-2025/2.test.yaml",
+      "sha256": "59da8c9679d9d3414156259e644022f7bdd5b43a87749a062ed0bf674384a1b4"
+    }
+  ],
+  "axiom_encode_git": {
+    "commit": "d8d4f1bf211b7640120e88a1055bc67c68134109",
+    "dirty_tracked": false,
+    "identity_source": "trusted-runtime-attestation",
+    "root": "/opt/axiom-verification/python/runtime-attestation.json",
+    "version": "0.2.1388",
+    "version_commit": "d8d4f1bf211b7640120e88a1055bc67c68134109"
+  },
+  "axiom_encode_version": "0.2.1388",
+  "backend": "openai",
+  "citation": "de/regulation/svbezgrv-2025/2",
+  "context_manifest_file": "/tmp/axiom-encode-encodings/_eval_workspaces/openai-gpt-5.6-terra/de-regulation-svbezgrv-2025-2/workspace/context-manifest.json",
+  "context_manifest_sha256": "5ff1095df69fb628418359d0bec490dd289a8ab864f161968a7f4cd8c842d728",
+  "generated_at": "2026-07-26T12:30:57.596858+00:00",
+  "generated_output_file": "/tmp/axiom-encode-encodings/openai-gpt-5.6-terra/regulations/svbezgrv-2025/2.yaml",
+  "generated_output_root": "/tmp/axiom-encode-encodings",
+  "generated_output_sha256": "0f3d3c886eda1006c5ddb00e1f75433d6304757ee7444ac892200865954a203d",
+  "generation_prompt_sha256": "8a0babb06a6a845a1f3f53e3a33098e186c83016505ea0d5e60bc3cab2358ad9",
+  "model": "gpt-5.6-terra",
+  "run_id": "6e8e9043",
+  "runner": "openai-gpt-5.6-terra",
+  "schema_version": "axiom-encode/applied-rulespec/v5",
+  "signature": {
+    "algorithm": "ed25519-domain-v1",
+    "key_id": "sha256:24a78725a23b1c83cfc38bdc22f75401d8008e7a8477796b55179d1fc79c4d9a",
+    "value": "Xz5nQh+Gte3Ci5n2CNRQNY7E2yfyWhTok/k8vWqXKOX5AFhA1gE3KiAb8g1gmAlBim4TQAHTi8BGea7wGRR/Cw=="
+  },
+  "source_attestation": {
+    "component_rows": [],
+    "corpus_release": "de-rulespec-2026-07-21",
+    "corpus_release_content_sha256": "b4b405a06bfcf21331cff50a45844fd0117b52212dc24d0f4912ed07575fd574",
+    "corpus_release_selector_sha256": "106612aa6075a23fae4aae7fc80c39920cb6e0ff95e38694baa6191f8f3905f5",
+    "corpus_source": "local",
+    "expression_date": "2026-07-16",
+    "generation_input_sha256": "becd570c345b18381e5edd54a33754085b0ba1f80e879de6af961c07a9192bf4",
+    "provision_file": "data/corpus/provisions/de/regulation/2026-07-16-de-federal-tax-benefit-r2026-07-21-2025-instruments.jsonl",
+    "provision_file_sha256": "abf3c4dcc16224370a4e5e717325fa6374818a5821f3419d981b4cc9c11f6528",
+    "requested_corpus_citation_path": "de/regulation/svbezgrv-2025/2",
+    "resolved_corpus_citation_path": "de/regulation/svbezgrv-2025/2",
+    "resolved_text_sha256": "becd570c345b18381e5edd54a33754085b0ba1f80e879de6af961c07a9192bf4",
+    "row": {
+      "body_sha256": "becd570c345b18381e5edd54a33754085b0ba1f80e879de6af961c07a9192bf4",
+      "citation_path": "de/regulation/svbezgrv-2025/2",
+      "document_class": "regulation",
+      "expression_date": "2026-07-16",
+      "jurisdiction": "de",
+      "line_number": 119,
+      "provision_file": "data/corpus/provisions/de/regulation/2026-07-16-de-federal-tax-benefit-r2026-07-21-2025-instruments.jsonl",
+      "provision_file_sha256": "abf3c4dcc16224370a4e5e717325fa6374818a5821f3419d981b4cc9c11f6528",
+      "record_id": "0f8c77df-4282-507c-9d6e-d549ccf37d7d",
+      "source_as_of": "2026-07-16",
+      "source_path": "sources/de/regulation/2026-07-16-de-federal-tax-benefit-r2026-07-21-2025-instruments/svbezgrv_2025/BJNR16D0A0024.xml",
+      "version": "2026-07-16-de-federal-tax-benefit-r2026-07-21-2025-instruments"
+    },
+    "rulespec_root": "rulespec-de/de",
+    "source_as_of": "2026-07-16",
+    "source_sha256": "becd570c345b18381e5edd54a33754085b0ba1f80e879de6af961c07a9192bf4"
+  },
+  "tool": "axiom-encode encode --apply",
+  "trace_file": "/tmp/axiom-encode-encodings/traces/openai-gpt-5.6-terra/de-regulation-svbezgrv-2025-2.json",
+  "trace_sha256": "4953880b11147d6080fef6ddaad0d5566355f407e9f8d5c4e8f203f4c7522688",
+  "validation_execution": {
+    "axiom_encode": {
+      "commit": "d8d4f1bf211b7640120e88a1055bc67c68134109",
+      "identity_source": "trusted-runtime-attestation",
+      "repository": "github.com/TheAxiomFoundation/axiom-encode",
+      "version": "0.2.1388"
+    },
+    "axiom_rules_engine": {
+      "commit": "05eac9d2f89dabe5c6673176260762cef3a58f47",
+      "repository": "github.com/TheAxiomFoundation/axiom-rules-engine"
+    },
+    "policy_pre_apply": {
+      "pre_apply_content_sha256": "0168005ba781aa3524aff3254ad553c7c01269208b04868d459bf87af8dbdfdb",
+      "pre_apply_file_count": 7,
+      "rulespec_root": "rulespec-de/de",
+      "toolchain_contract_sha256": "a6cd4786ca7637730b2441f519ec1c779c262c254867b19bce24e5e03ed2c05b",
+      "validation_waiver_set_sha256": "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
+    },
+    "rulespec_dependencies": [],
+    "schema": "axiom-encode/apply-validation-execution/v1"
+  },
+  "validation_waiver_set_sha256": "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
+}

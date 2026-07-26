@@ -1,0 +1,16 @@
+- name: annual_earnings_thresholds_for_2025
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:regulations/svbezgrv-2025/2#general_health_insurance_annual_earnings_threshold: 73800
+    de:regulations/svbezgrv-2025/2#special_health_insurance_annual_earnings_threshold: 66150
+- name: monthly_earnings_thresholds_for_2025
+  period: 2025-01
+  input: {}
+  output:
+    de:regulations/svbezgrv-2025/2#general_health_insurance_monthly_earnings_threshold: 6150
+    de:regulations/svbezgrv-2025/2#special_health_insurance_monthly_earnings_threshold: 5512.5
