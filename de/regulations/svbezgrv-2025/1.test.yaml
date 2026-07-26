@@ -1,0 +1,10 @@
+- name: 2025_social_insurance_reference_amounts
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:regulations/svbezgrv-2025/1#social_insurance_reference_amount: 44940
+    de:regulations/svbezgrv-2025/1#monthly_social_insurance_reference_amount: 3745
