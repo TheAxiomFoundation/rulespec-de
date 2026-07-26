@@ -1,0 +1,6 @@
+- name: general_contribution_amount_from_contribution_liability_income
+  period: 2026-07
+  input:
+    de:statutes/sgb-5/241#input.contribution_liability_income: 1000
+  output:
+    de:statutes/sgb-5/241#general_contribution_amount: 146
