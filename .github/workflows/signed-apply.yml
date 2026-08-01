@@ -20,6 +20,16 @@ on:
         required: false
         type: boolean
         default: true
+      initial-model:
+        description: "Generation model for the first attempts (empty = encoder default terra)."
+        required: false
+        type: string
+        default: ""
+      escalate-after:
+        description: "Escalate to the fallback model after N validator-rejected attempts (empty = encoder default 2)."
+        required: false
+        type: string
+        default: 
 
 permissions:
   # Allows open_pr to classify a missing matrix artifact. The called encode
@@ -34,6 +44,8 @@ jobs:
       citations: ${{ inputs.citations }}
       limit: ${{ inputs.limit }}
       require-complete-source-unit: ${{ inputs.require-complete-source-unit }}
+      initial-model: ${{ inputs.initial-model }}
+      escalate-after: ${{ inputs.escalate-after }}
     # Reusable-workflow call jobs cannot declare an environment, so these are
     # org secrets explicitly restricted to the country repositories.
     secrets:
