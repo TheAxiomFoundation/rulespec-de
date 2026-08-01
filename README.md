@@ -29,6 +29,6 @@ release exists.
 ## Listing gates
 
 `.axiom/registry.toml` keeps this repo `experimental` (hidden from the
-axiom-foundation.org app surfaces) until: the release binding is live, the
+axiom.org app surfaces) until: the release binding is live, the
 first instruments pass both oracles or carry dispositioned findings, and the
 findings ledger exists.
