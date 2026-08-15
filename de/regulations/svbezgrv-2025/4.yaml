@@ -1,0 +1,86 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/svbezgrv-2025/4
+    source_sha256: 711017bbdb17a7837a5f97ebcde33af76261ae59e28b57670abfbf968e0b0152
+  summary: § 4 Abs. 1 setzt für 2025 die Beitragsbemessungsgrenzen der allgemeinen
+    Rentenversicherung auf 96 600 Euro jährlich beziehungsweise 8 050 Euro monatlich
+    und der knappschaftlichen Rentenversicherung auf 118 800 Euro jährlich beziehungsweise
+    9 900 Euro monatlich fest. § 4 Abs. 2 ergänzt Anlage 2 zum Sechsten Buch Sozialgesetzbuch
+    um den Zeitraum „1.1.2025 – 31.12.2025“ und die jeweiligen Jahresbeträge.
+rules:
+- name: general_pension_insurance_annual_contribution_assessment_ceiling
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 4 Abs. 1 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/svbezgrv-2025/4
+          excerpt: in der allgemeinen Rentenversicherung auf 96 600 Euro jährlich
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '96600'
+- name: general_pension_insurance_monthly_contribution_assessment_ceiling
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 4 Abs. 1 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/svbezgrv-2025/4
+          excerpt: umgerechnet auf den Monat ergeben sich 8 050 Euro
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '8050'
+- name: miners_pension_insurance_annual_contribution_assessment_ceiling
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 4 Abs. 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/svbezgrv-2025/4
+          excerpt: in der knappschaftlichen Rentenversicherung auf 118 800 Euro jährlich
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '118800'
+- name: miners_pension_insurance_monthly_contribution_assessment_ceiling
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 4 Abs. 1 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/svbezgrv-2025/4
+          excerpt: umgerechnet auf den Monat ergeben sich 9 900 Euro
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '9900'
+- name: adds_annual_contribution_assessment_ceilings_to_sgb_vi_annex_2
+  kind: source_relation
+  source: § 4 Abs. 2
+  source_relation:
+    type: amends
+    target: de:statutes/sgb-6/anlage-2
+    amendment:
+      operation: add
+      effective: '2025-01-01'
