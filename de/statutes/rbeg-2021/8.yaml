@@ -1,0 +1,210 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/rbeg-2021/8
+    source_sha256: 0783343f3ce3c3b691ea8bee3047e3a818af42b0da4902c6ff3b28c372e4a964
+  summary: 'Zum 1. Januar 2021 betragen die Regelbedarfsstufen 1 bis 6 jeweils
+
+    446 Euro, 401 Euro, 357 Euro, 373 Euro, 309 Euro und 283 Euro.
+
+    Die Stufen 4 bis 6 unterscheiden Jugendliche und Kinder nach den
+
+    ausdrücklich genannten Lebensjahresgrenzen.'
+rules:
+- name: adult_in_dwelling_level_1_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 1 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 1 auf 446 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '446'
+- name: adult_partner_household_level_2_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 2 Buchst. a RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 2 auf 401 Euro
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: mit einem Ehegatten oder Lebenspartner oder in eheähnlicher oder
+            lebenspartnerschaftsähnlicher Gemeinschaft
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '401'
+- name: adult_personal_room_level_2_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 2 Buchst. b RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 2 auf 401 Euro
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: nicht in einer Wohnung lebt, weil ihr allein oder mit einer weiteren
+            Person ein persönlicher Wohnraum
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '401'
+- name: adult_stationary_institution_level_3_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 3 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 3 auf 357 Euro
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: Unterbringung in einer stationären Einrichtung
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '357'
+- name: youth_level_4_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 4 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 4 auf 373 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '373'
+- name: youth_level_4_starting_life_year
+  kind: parameter
+  dtype: Integer
+  source: § 8 Nr. 4 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: vom Beginn des 15. bis zur Vollendung des 18. Lebensjahres
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '15'
+- name: youth_level_4_completed_life_year_limit
+  kind: parameter
+  dtype: Integer
+  source: § 8 Nr. 4 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: vom Beginn des 15. bis zur Vollendung des 18. Lebensjahres
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '18'
+- name: child_level_5_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 5 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 5 auf 309 Euro
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: für ein Kind vom Beginn des siebten bis zur Vollendung des 14.
+            Lebensjahres
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '309'
+- name: child_level_5_completed_life_year_limit
+  kind: parameter
+  dtype: Integer
+  source: § 8 Nr. 5 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: bis zur Vollendung des 14. Lebensjahres
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '14'
+- name: child_level_6_amount
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 8 Nr. 6 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: in der Regelbedarfsstufe 6 auf 283 Euro
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '283'
+- name: child_level_6_completed_life_year_limit
+  kind: parameter
+  dtype: Integer
+  source: § 8 Nr. 6 RBEG 2021
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/rbeg-2021/8
+          excerpt: bis zur Vollendung des sechsten Lebensjahres
+  versions:
+  - effective_from: '2021-01-01'
+    formula: '6'

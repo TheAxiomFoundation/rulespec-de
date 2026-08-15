@@ -1,0 +1,19 @@
+- name: regelbedarfsstufen_snapshot_january_2021
+  period:
+    period_kind: custom
+    name: day
+    start: '2021-01-01'
+    end: '2021-01-01'
+  input: {}
+  output:
+    de:statutes/rbeg-2021/8#adult_in_dwelling_level_1_amount: 446
+    de:statutes/rbeg-2021/8#adult_partner_household_level_2_amount: 401
+    de:statutes/rbeg-2021/8#adult_personal_room_level_2_amount: 401
+    de:statutes/rbeg-2021/8#adult_stationary_institution_level_3_amount: 357
+    de:statutes/rbeg-2021/8#youth_level_4_amount: 373
+    de:statutes/rbeg-2021/8#youth_level_4_starting_life_year: 15
+    de:statutes/rbeg-2021/8#youth_level_4_completed_life_year_limit: 18
+    de:statutes/rbeg-2021/8#child_level_5_amount: 309
+    de:statutes/rbeg-2021/8#child_level_5_completed_life_year_limit: 14
+    de:statutes/rbeg-2021/8#child_level_6_amount: 283
+    de:statutes/rbeg-2021/8#child_level_6_completed_life_year_limit: 6
