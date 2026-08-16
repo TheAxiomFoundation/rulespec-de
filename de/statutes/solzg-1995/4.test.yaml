@@ -1,0 +1,9 @@
+- name: soli_rate_and_mitigation_cap
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/solzg-1995/4#solidarity_surcharge_rate: 0.055
+    de:statutes/solzg-1995/4#mitigation_zone_maximum_rate: 0.119
