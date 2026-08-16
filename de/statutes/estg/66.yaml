@@ -1,0 +1,24 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/estg/66
+  summary: 'EStG § 66 Absatz 1: Das Kindergeld beträgt monatlich für jedes Kind 259 Euro. Encodiert ist der aktuelle (2026er) Betrag; der 2025er Betrag (255 €) ist in dieser Release nicht enthalten (bulk/ENCODING-GAPS.md).'
+rules:
+- name: kindergeld_monthly_amount_per_child
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 66 Abs. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/66
+          excerpt: Das Kindergeld beträgt monatlich für jedes Kind 259 Euro.
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '259'
