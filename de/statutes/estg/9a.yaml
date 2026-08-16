@@ -1,0 +1,40 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/estg/9a
+  summary: 'EStG § 9a (Pauschbeträge für Werbungskosten): Arbeitnehmer-Pauschbetrag 1.230 Euro für Einnahmen aus nichtselbständiger Arbeit (Satz 1 Nr. 1 Buchst. a) und Pauschbetrag 102 Euro für Versorgungsbezüge (Buchst. b). Encodiert sind die gesetzlichen Pauschbeträge des aktuellen Textes.'
+rules:
+- name: arbeitnehmer_pauschbetrag
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 9a Satz 1 Nr. 1 Buchst. a
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/9a
+          excerpt: ein Arbeitnehmer-Pauschbetrag von 1 230 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '1230'
+- name: versorgungsbezuege_pauschbetrag
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: EStG § 9a Satz 1 Nr. 1 Buchst. b
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/estg/9a
+          excerpt: handelt:ein Pauschbetrag von 102 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '102'
