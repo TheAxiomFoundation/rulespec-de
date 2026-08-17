@@ -29,11 +29,16 @@ on:
         description: "Escalate to the fallback model after N validator-rejected attempts (empty = encoder default 2)."
         required: false
         type: string
-        default: 
+        default:
+      repair-candidate-run-id:
+        description: "Optional failed signed-apply run containing this leg's repair candidate."
+        required: false
+        type: string
+        default: ""
 
 permissions:
-  # Allows open_pr to classify a missing matrix artifact. The called encode
-  # job narrows its own token back to contents: read only.
+  # Allows encode to download an explicitly selected prior-run failed candidate
+  # and open_pr to classify a missing current-run signed artifact.
   actions: read
   contents: read
 
@@ -46,6 +51,7 @@ jobs:
       require-complete-source-unit: ${{ inputs.require-complete-source-unit }}
       initial-model: ${{ inputs.initial-model }}
       escalate-after: ${{ inputs.escalate-after }}
+      repair-candidate-run-id: ${{ inputs.repair-candidate-run-id }}
     # Reusable-workflow call jobs cannot declare an environment, so these are
     # org secrets explicitly restricted to the country repositories.
     secrets:
