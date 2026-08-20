@@ -16,8 +16,13 @@ and GETTSIM (policy_date 2025-06-30). Read the org regime first:
   converter). New citations → batch a corpus ingest + release re-cut; record
   interim gaps in `data/coverage/awaiting-source-recovery.json`.
 - **Dual-oracle discipline**: encode the statute, never an oracle's behavior.
-  Oracle-vs-oracle disagreements are findings against the losing model
-  (ledger + upstream issue), adjudicated by the print.
+  Oracle-vs-oracle disagreements are adjudicated by the print — but **never
+  file an upstream issue against an oracle until our own encoding of the
+  provision is signed** (Max, 2026-08-19; the gettsim#1215 retraction). A
+  pre-encoding divergence is recorded in dispositions as `unexplained`, not
+  filed. Encoding forces the full mechanism — bases, rounding, procedural
+  regulations like BVV §2 — that a drive-by adjudication misses; file upstream
+  only when the divergence survives our signed encoding.
 - **German text**: statute bodies are German; keep proof excerpts in the
   original German (verbatim), with English notes only outside excerpt fields.
   Umlauts/ß are preserved exactly — never transliterate inside excerpts.
