@@ -1,0 +1,13 @@
+- name: kinderzuschlag_parameters
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/bkgg-1996/6a#minimum_parental_income_couple: 900
+    de:statutes/bkgg-1996/6a#minimum_parental_income_single: 600
+    de:statutes/bkgg-1996/6a#immediate_supplement: 25
+    de:statutes/bkgg-1996/6a#child_income_withdrawal_rate_percent: 45
+    de:statutes/bkgg-1996/6a#asset_allowance_claimant: 40000
+    de:statutes/bkgg-1996/6a#asset_allowance_additional_member: 15000
