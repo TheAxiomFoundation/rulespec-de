@@ -1,0 +1,9 @@
+- name: soli_annual_freigrenzen_2026_text
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/solzg-1995/3#freigrenze_splitting_cases: 40700
+    de:statutes/solzg-1995/3#freigrenze_other_cases: 20350

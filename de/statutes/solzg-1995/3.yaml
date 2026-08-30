@@ -1,0 +1,40 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/solzg-1995/3
+  summary: 'SolzG 1995 § 3 Absatz 3 (Freigrenze): Der Solidaritätszuschlag wird nur erhoben, wenn die Bemessungsgrundlage 40 700 Euro (Splitting, § 32a Abs. 5/6 EStG) bzw. 20 350 Euro (andere Fälle) übersteigt. Encodiert sind die Jahres-Freigrenzen des aktuellen (2026er) Textes; die Lohnzahlungszeitraum-Umrechnung (Absatz 4) ist nicht Teil der Jahresparität. Die 2025er Freigrenzen (19.950/39.900 €) sind in dieser Release nicht enthalten (bulk/ENCODING-GAPS.md).'
+rules:
+- name: freigrenze_splitting_cases
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: SolzG 1995 § 3 Abs. 3 Nr. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/solzg-1995/3
+          excerpt: in den Fällen des § 32a Absatz 5 und 6 des Einkommensteuergesetzes 40 700 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '40700'
+- name: freigrenze_other_cases
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: SolzG 1995 § 3 Abs. 3 Nr. 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/solzg-1995/3
+          excerpt: in anderen Fällen 20 350 Euro
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '20350'
