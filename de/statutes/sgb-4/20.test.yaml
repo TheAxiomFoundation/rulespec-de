@@ -1,0 +1,9 @@
+- name: midijob_upper_limit_and_factor_reference
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/sgb-4/20#uebergangsbereich_upper_monthly_limit: 2000
+    de:statutes/sgb-4/20#transition_factor_reference_rate: 0.28

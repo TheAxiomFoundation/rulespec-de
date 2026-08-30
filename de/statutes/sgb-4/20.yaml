@@ -1,0 +1,39 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-4/20
+  summary: '§ 20 SGB IV (Übergangsbereich/Midijob): Der Übergangsbereich umfasst Arbeitsentgelte über der Geringfügigkeitsgrenze bis 2 000 Euro im Monat (Absatz 2). Der Faktor F der reduzierten beitragspflichtigen Einnahme ergibt sich, indem der Wert 28 Prozent durch den Gesamtsozialversicherungsbeitragssatz geteilt wird (Absatz 2a). Der jährlich vom BMAS bekanntgegebene Wert von F ist nicht Teil dieser Release.'
+rules:
+- name: uebergangsbereich_upper_monthly_limit
+  kind: parameter
+  dtype: Money
+  unit: EUR
+  source: § 20 Abs. 2 SGB IV
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-4/20
+          excerpt: die regelmäßig 2 000 Euro im Monat nicht übersteigen
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '2000'
+- name: transition_factor_reference_rate
+  kind: parameter
+  dtype: Rate
+  source: § 20 Abs. 2a SGB IV
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/statute/sgb-4/20
+          excerpt: indem der Wert 28 Prozent geteilt wird durch den Gesamtsozialversicherungsbeitragssatz
+  versions:
+  - effective_from: '0001-01-01'
+    formula: '0.28'
