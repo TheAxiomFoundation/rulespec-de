@@ -1,0 +1,9 @@
+- name: wohngeld_factor_and_increment
+  period:
+    period_kind: tax_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/wogg/19#wohngeld_formula_factor: 1.15
+    de:statutes/wogg/19#additional_household_member_increment: 65
