@@ -1,0 +1,75 @@
+- name: matching_birth_record_on_delivery_day_establishes_maternity
+  period:
+    period_kind: custom
+    name: day
+    start: '2024-05-14'
+    end: '2024-05-14'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2024-05-14'
+    de:statutes/bgb/1591#input.evaluation_day: '2024-05-14'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: holds
+- name: matching_historical_birth_record_establishes_maternity_on_later_day
+  period:
+    period_kind: custom
+    name: day
+    start: '2026-09-08'
+    end: '2026-09-08'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2001-02-03'
+    de:statutes/bgb/1591#input.evaluation_day: '2026-09-08'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: holds
+- name: another_childs_birth_record_does_not_establish_maternity_for_candidate_child
+  period:
+    period_kind: custom
+    name: day
+    start: '2024-05-14'
+    end: '2024-05-14'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_b
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2024-05-14'
+    de:statutes/bgb/1591#input.evaluation_day: '2024-05-14'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: not_holds
+- name: another_persons_birth_record_does_not_establish_maternity_for_candidate
+  period:
+    period_kind: custom
+    name: day
+    start: '2024-05-14'
+    end: '2024-05-14'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_b
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2024-05-14'
+    de:statutes/bgb/1591#input.evaluation_day: '2024-05-14'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: not_holds
+- name: future_birth_record_does_not_establish_maternity_on_evaluation_day
+  period:
+    period_kind: custom
+    name: day
+    start: '2024-05-14'
+    end: '2024-05-14'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2024-05-15'
+    de:statutes/bgb/1591#input.evaluation_day: '2024-05-14'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: not_holds

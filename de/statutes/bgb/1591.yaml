@@ -1,0 +1,60 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/bgb/1591
+    source_sha256: d68b9cde00c3d0281babcd5265fb095b7dff16ab1f273c6f791066e352531699
+  summary: Mutter eines Kindes ist die Frau, die es geboren hat.
+inputs:
+- name: candidate_child_identifier
+  entity: CandidateChildPair
+  dtype: String
+  period: Day
+- name: candidate_person_identifier
+  entity: CandidateChildPair
+  dtype: String
+  period: Day
+- name: birth_record_child_identifier
+  entity: CandidateChildPair
+  dtype: String
+  period: Day
+- name: birth_record_person_identifier
+  entity: CandidateChildPair
+  dtype: String
+  period: Day
+- name: birth_record_delivery_date
+  entity: CandidateChildPair
+  dtype: Date
+  period: Day
+- name: evaluation_day
+  entity: CandidateChildPair
+  dtype: Date
+  period: Day
+rules:
+- name: identified_birth_record_establishes_maternity
+  kind: derived
+  entity: CandidateChildPair
+  dtype: Judgment
+  period: Day
+  source: BGB § 1591
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: definition
+        source:
+          corpus_citation_path: de/statute/bgb/1591
+          excerpt: Mutter eines Kindes ist die Frau, die es geboren hat.
+      - path: versions[0].effective_from
+        kind: effective_period
+        source:
+          corpus_citation_path: de/statute/bgbl-1997-i-2942/kindschaftsrechtsreformgesetz/parentage-commencement-extract/document-1
+          excerpt: Dieses Gesetz tritt am 1. Juli 1998 in Kraft.
+  versions:
+  - effective_from: '1998-07-01'
+    formula: 'candidate_child_identifier == birth_record_child_identifier
+
+      and candidate_person_identifier == birth_record_person_identifier
+
+      and birth_record_delivery_date <= evaluation_day'
