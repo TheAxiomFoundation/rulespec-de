@@ -1,0 +1,96 @@
+{
+  "applied_files": [
+    {
+      "path": "de/statutes/bgb/1591.yaml",
+      "sha256": "0d11a21c963d781dfd0952e4bbd31791739946d8174babbdadaa2959164ab1dd"
+    },
+    {
+      "path": "de/statutes/bgb/1591.test.yaml",
+      "sha256": "daadd68b82f087e51913332a550a88e7964d55a23627c199f15b3340dd565db8"
+    }
+  ],
+  "axiom_encode_git": {
+    "commit": "c39348f1241516d33127a887f470266608c6aefa",
+    "dirty_tracked": false,
+    "identity_source": "trusted-runtime-attestation",
+    "root": "/opt/axiom-verification/python/runtime-attestation.json",
+    "version": "0.2.1770",
+    "version_commit": "c39348f1241516d33127a887f470266608c6aefa"
+  },
+  "axiom_encode_version": "0.2.1770",
+  "backend": "openai",
+  "citation": "de/statute/bgb/1591",
+  "context_manifest_file": "/home/runner/work/_temp/generated/target/_eval_workspaces/openai-gpt-5.6-terra/de-statute-bgb-1591/workspace/context-manifest.json",
+  "context_manifest_sha256": "7dff3dac1ee8e054d9e1f93a8f9c10323029789904d557b5049b23fc5f4e6dd5",
+  "generated_at": "2026-09-08T20:36:25.274716+00:00",
+  "generated_output_file": "/home/runner/work/_temp/generated/target/openai-gpt-5.6-terra/statutes/bgb/1591.yaml",
+  "generated_output_root": "/home/runner/work/_temp/generated/target",
+  "generated_output_sha256": "0d11a21c963d781dfd0952e4bbd31791739946d8174babbdadaa2959164ab1dd",
+  "generation_prompt_sha256": "0e81bfc24aa191bdb9503a8ddc496472429f58552ed65542c5514dbb09bed0c2",
+  "model": "gpt-5.6-terra",
+  "run_id": "b99a273d",
+  "runner": "openai-gpt-5.6-terra",
+  "schema_version": "axiom-encode/applied-rulespec/v5",
+  "signature": {
+    "algorithm": "ed25519-domain-v1",
+    "key_id": "sha256:24a78725a23b1c83cfc38bdc22f75401d8008e7a8477796b55179d1fc79c4d9a",
+    "value": "MBwqKvRO3vpGCoS8t1b836HTSBX+LZp8yA5VnxtWgQHvNH5tr81Bx/DBe0pxoLt26HeYGsBv9BTOf/mWDqB9AA=="
+  },
+  "source_attestation": {
+    "component_rows": [],
+    "corpus_release": "de-rulespec-2026-09-08-kindergeld-context",
+    "corpus_release_content_sha256": "32f506ac4cee0b0e98aab5834b4ab0f98ea82f918890ddd2394c10a31286773c",
+    "corpus_release_selector_sha256": "3f3392ce27bf299c991ef6305017a0491f550552bbd3e5e9fdd859519dca6b68",
+    "corpus_source": "local",
+    "expression_date": "2026-09-08",
+    "generation_input_sha256": "d68b9cde00c3d0281babcd5265fb095b7dff16ab1f273c6f791066e352531699",
+    "provision_file": "data/corpus/provisions/de/statute/2026-09-08-de-kindergeld-civil-dependencies.jsonl",
+    "provision_file_sha256": "3ec9ce938c85f9d8fd7b74e22b207a6621ea7b9eda19c69adedb2c873a4ccd68",
+    "requested_corpus_citation_path": "de/statute/bgb/1591",
+    "resolved_corpus_citation_path": "de/statute/bgb/1591",
+    "resolved_text_sha256": "d68b9cde00c3d0281babcd5265fb095b7dff16ab1f273c6f791066e352531699",
+    "row": {
+      "body_sha256": "d68b9cde00c3d0281babcd5265fb095b7dff16ab1f273c6f791066e352531699",
+      "citation_path": "de/statute/bgb/1591",
+      "document_class": "statute",
+      "expression_date": "2026-09-08",
+      "jurisdiction": "de",
+      "line_number": 571,
+      "provision_file": "data/corpus/provisions/de/statute/2026-09-08-de-kindergeld-civil-dependencies.jsonl",
+      "provision_file_sha256": "3ec9ce938c85f9d8fd7b74e22b207a6621ea7b9eda19c69adedb2c873a4ccd68",
+      "record_id": "91f645ce-273b-5c2d-ab42-1daebebfcf17",
+      "source_as_of": "2026-09-08",
+      "source_path": "sources/de/statute/2026-09-08-de-kindergeld-civil-dependencies/bgb/BJNR001950896.xml",
+      "version": "2026-09-08-de-kindergeld-civil-dependencies"
+    },
+    "rulespec_root": "rulespec-de/de",
+    "source_as_of": "2026-09-08",
+    "source_sha256": "d68b9cde00c3d0281babcd5265fb095b7dff16ab1f273c6f791066e352531699"
+  },
+  "tool": "axiom-encode encode --apply",
+  "trace_file": "/home/runner/work/_temp/generated/target/traces/openai-gpt-5.6-terra/de-statute-bgb-1591.json",
+  "trace_sha256": "e6fabbf630bf0b3a85800b584cf214e5aac928156a8ad2cee79b94475771f659",
+  "validation_execution": {
+    "axiom_encode": {
+      "commit": "c39348f1241516d33127a887f470266608c6aefa",
+      "identity_source": "trusted-runtime-attestation",
+      "repository": "github.com/TheAxiomFoundation/axiom-encode",
+      "version": "0.2.1770"
+    },
+    "axiom_rules_engine": {
+      "commit": "05eac9d2f89dabe5c6673176260762cef3a58f47",
+      "repository": "github.com/TheAxiomFoundation/axiom-rules-engine"
+    },
+    "policy_pre_apply": {
+      "pre_apply_content_sha256": "3ba3ade8dc3c9fb4878650695dea56ce0e96477d11ee201eedf739fe402d656d",
+      "pre_apply_file_count": 17,
+      "rulespec_root": "rulespec-de/de",
+      "toolchain_contract_sha256": "1ed317793a54b01028e0faee542dac1be0b0512113ad42e976a8d1b798e83fcf",
+      "validation_waiver_set_sha256": "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
+    },
+    "rulespec_dependencies": [],
+    "rulespec_scope": "full_checkout",
+    "schema": "axiom-encode/apply-validation-execution/v2"
+  },
+  "validation_waiver_set_sha256": "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
+}

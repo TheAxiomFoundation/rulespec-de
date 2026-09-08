@@ -1,0 +1,91 @@
+- name: matching_birth_record_before_query_day_does_not_yet_establish_maternity
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-20'
+    end: '2025-03-20'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2025-03-21'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: not_holds
+- name: matching_birth_record_on_query_day_establishes_maternity
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2025-03-21'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: holds
+- name: matching_birth_record_persists_after_query_day
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-22'
+    end: '2025-03-22'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '2025-03-21'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: holds
+- name: current_definition_covers_identified_birth_before_commencement
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input:
+    de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+    de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+    de:statutes/bgb/1591#input.birth_record_delivery_date: '1990-05-10'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity: holds
+- name: shared_candidate_child_pair_birth_record_coverage
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input: {}
+  tables:
+    CandidateChildPair:
+    - de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+      de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+      de:statutes/bgb/1591#input.birth_record_delivery_date: '2020-05-10'
+    - de:statutes/bgb/1591#input.candidate_child_identifier: child_b
+      de:statutes/bgb/1591#input.candidate_person_identifier: person_a
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child_b
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+      de:statutes/bgb/1591#input.birth_record_delivery_date: '2025-03-21'
+    - de:statutes/bgb/1591#input.candidate_child_identifier: child_a
+      de:statutes/bgb/1591#input.candidate_person_identifier: person_b
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person_a
+      de:statutes/bgb/1591#input.birth_record_delivery_date: '2020-05-10'
+    - de:statutes/bgb/1591#input.candidate_child_identifier: child_b
+      de:statutes/bgb/1591#input.candidate_person_identifier: person_b
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child_a
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person_b
+      de:statutes/bgb/1591#input.birth_record_delivery_date: '2020-05-10'
+  output:
+    de:statutes/bgb/1591#identified_birth_record_establishes_maternity:
+    - holds
+    - holds
+    - not_holds
+    - not_holds
