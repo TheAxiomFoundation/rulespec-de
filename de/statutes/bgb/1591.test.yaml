@@ -1,0 +1,77 @@
+- name: matching_birth_records_for_two_children_in_shared_candidate_child_dataset
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  tables:
+    CandidateChildPair:
+    - de:statutes/bgb/1591#input.candidate_person_identifier: person-a
+      de:statutes/bgb/1591#input.child_identifier: child-1
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person-a
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child-1
+      de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: true
+    - de:statutes/bgb/1591#input.candidate_person_identifier: person-a
+      de:statutes/bgb/1591#input.child_identifier: child-2
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person-a
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child-2
+      de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: true
+    - de:statutes/bgb/1591#input.candidate_person_identifier: person-b
+      de:statutes/bgb/1591#input.child_identifier: child-1
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person-a
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child-1
+      de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: true
+    - de:statutes/bgb/1591#input.candidate_person_identifier: person-b
+      de:statutes/bgb/1591#input.child_identifier: child-2
+      de:statutes/bgb/1591#input.birth_record_person_identifier: person-a
+      de:statutes/bgb/1591#input.birth_record_child_identifier: child-2
+      de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: true
+  input: {}
+  output:
+    de:statutes/bgb/1591#candidate_is_mother_of_child:
+    - holds
+    - holds
+    - not_holds
+    - not_holds
+- name: no_recorded_delivery_does_not_establish_motherhood
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input:
+    de:statutes/bgb/1591#input.candidate_person_identifier: person-c
+    de:statutes/bgb/1591#input.child_identifier: child-3
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person-c
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child-3
+    de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: false
+  output:
+    de:statutes/bgb/1591#candidate_is_mother_of_child: not_holds
+- name: future_delivery_does_not_establish_motherhood_before_birth
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input:
+    de:statutes/bgb/1591#input.candidate_person_identifier: person-d
+    de:statutes/bgb/1591#input.child_identifier: child-4
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person-d
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child-4
+    de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: false
+  output:
+    de:statutes/bgb/1591#candidate_is_mother_of_child: not_holds
+- name: earlier_birth_remains_a_birth_recorded_before_current_query_day
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input:
+    de:statutes/bgb/1591#input.candidate_person_identifier: person-e
+    de:statutes/bgb/1591#input.child_identifier: child-5
+    de:statutes/bgb/1591#input.birth_record_person_identifier: person-e
+    de:statutes/bgb/1591#input.birth_record_child_identifier: child-5
+    de:statutes/bgb/1591#input.birth_record_delivery_occurred_by_evaluation_day: true
+  output:
+    de:statutes/bgb/1591#candidate_is_mother_of_child: holds
