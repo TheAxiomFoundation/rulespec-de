@@ -1,0 +1,62 @@
+- name: ordinary_event_month_end_and_year_end_dates
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input: {}
+  tables:
+    Person:
+    - de:statutes/bgb/187#input.event_or_intraday_time_date: '2025-03-21'
+      de:statutes/bgb/187#input.starting_day_date: '2025-03-21'
+      de:statutes/bgb/187#input.date_of_birth: '2000-05-10'
+    - de:statutes/bgb/187#input.event_or_intraday_time_date: '2025-01-31'
+      de:statutes/bgb/187#input.starting_day_date: '2025-01-31'
+      de:statutes/bgb/187#input.date_of_birth: '1999-01-31'
+    - de:statutes/bgb/187#input.event_or_intraday_time_date: '2025-12-31'
+      de:statutes/bgb/187#input.starting_day_date: '2025-12-31'
+      de:statutes/bgb/187#input.date_of_birth: '1980-12-31'
+  output:
+    de:statutes/bgb/187#first_included_day_after_event_or_intraday_time:
+    - 2025-03-22
+    - 2025-02-01
+    - 2026-01-01
+    de:statutes/bgb/187#first_included_day_when_period_starts_at_beginning_of_day:
+    - 2025-03-21
+    - 2025-01-31
+    - 2025-12-31
+    de:statutes/bgb/187#first_included_day_for_life_age_calculation:
+    - 2000-05-10
+    - 1999-01-31
+    - 1980-12-31
+- name: leap_day_and_february_event_dates
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input: {}
+  tables:
+    Person:
+    - de:statutes/bgb/187#input.event_or_intraday_time_date: '2024-02-28'
+      de:statutes/bgb/187#input.starting_day_date: '2024-02-28'
+      de:statutes/bgb/187#input.date_of_birth: '2004-02-28'
+    - de:statutes/bgb/187#input.event_or_intraday_time_date: '2025-02-28'
+      de:statutes/bgb/187#input.starting_day_date: '2025-02-28'
+      de:statutes/bgb/187#input.date_of_birth: '2005-02-28'
+    - de:statutes/bgb/187#input.event_or_intraday_time_date: '2024-02-29'
+      de:statutes/bgb/187#input.starting_day_date: '2024-02-29'
+      de:statutes/bgb/187#input.date_of_birth: '2000-02-29'
+  output:
+    de:statutes/bgb/187#first_included_day_after_event_or_intraday_time:
+    - 2024-02-29
+    - 2025-03-01
+    - 2024-03-01
+    de:statutes/bgb/187#first_included_day_when_period_starts_at_beginning_of_day:
+    - 2024-02-28
+    - 2025-02-28
+    - 2024-02-29
+    de:statutes/bgb/187#first_included_day_for_life_age_calculation:
+    - 2004-02-28
+    - 2005-02-28
+    - 2000-02-29

@@ -1,0 +1,79 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/bgb/187
+    source_sha256: 219010ff04683acddfa67bc918d459901fc00840e5ee1b9162842f05476572a7
+  summary: Ist für den Anfang einer Frist ein Ereignis oder ein in den Lauf eines
+    Tages fallender Zeitpunkt maßgebend, so wird bei der Berechnung der Frist der
+    Tag nicht mitgerechnet. Ist der Beginn eines Tages maßgebend, wird dieser Tag
+    mitgerechnet. Das Gleiche gilt von dem Tage der Geburt bei der Berechnung des
+    Lebensalters.
+inputs:
+- name: event_or_intraday_time_date
+  entity: Person
+  dtype: Date
+  period: Day
+- name: starting_day_date
+  entity: Person
+  dtype: Date
+  period: Day
+- name: date_of_birth
+  entity: Person
+  dtype: Date
+  period: Day
+rules:
+- name: first_included_day_after_event_or_intraday_time
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Day
+  source: BGB § 187 Abs. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: der Tag nicht mitgerechnet, in welchen das Ereignis oder der Zeitpunkt
+            fällt
+  versions:
+  - effective_from: '1998-07-01'
+    formula: date_add_days(event_or_intraday_time_date, 1)
+- name: first_included_day_when_period_starts_at_beginning_of_day
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Day
+  source: BGB § 187 Abs. 2 Satz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: definition
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: so wird dieser Tag bei der Berechnung der Frist mitgerechnet
+  versions:
+  - effective_from: '1998-07-01'
+    formula: starting_day_date
+- name: first_included_day_for_life_age_calculation
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Day
+  source: BGB § 187 Abs. 2 Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: definition
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: Das Gleiche gilt von dem Tage der Geburt bei der Berechnung des
+            Lebensalters.
+  versions:
+  - effective_from: '1998-07-01'
+    formula: date_of_birth
