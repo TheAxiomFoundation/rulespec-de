@@ -1,0 +1,91 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/bgb/187
+    source_sha256: 219010ff04683acddfa67bc918d459901fc00840e5ee1b9162842f05476572a7
+  summary: „Ist für den Anfang einer Frist ein Ereignis oder ein in den Lauf eines
+    Tages fallender Zeitpunkt maßgebend, so wird bei der Berechnung der Frist der
+    Tag nicht mitgerechnet.“ „Ist der Beginn eines Tages der für den Anfang einer
+    Frist maßgebende Zeitpunkt, so wird dieser Tag bei der Berechnung der Frist mitgerechnet.
+    Das Gleiche gilt von dem Tage der Geburt bei der Berechnung des Lebensalters.“
+    These helpers support consumer evaluation from 2025-01-01; that supported observation
+    start is not a claim about BGB § 187 commencement or amendment.
+inputs:
+- name: event_or_intraday_timepoint_date
+  entity: Person
+  dtype: Date
+  period: Day
+- name: beginning_of_day_start_date
+  entity: Person
+  dtype: Date
+  period: Day
+- name: recorded_birth_date
+  entity: Person
+  dtype: Date
+  period: Day
+rules:
+- name: first_included_day_after_event_or_intraday_timepoint
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Day
+  source: BGB § 187 Abs. 1
+  description: The first included date is the calendar day after the event or intraday
+    timepoint date; this helper does not determine which deadline regime applies or
+    calculate a deadline end.
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: (1) Ist für den Anfang einer Frist ein Ereignis oder ein in den
+            Lauf eines Tages fallender Zeitpunkt maßgebend, so wird bei der Berechnung
+            der Frist der Tag nicht mitgerechnet, in welchen das Ereignis oder der
+            Zeitpunkt fällt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: date_add_days(event_or_intraday_timepoint_date, 1)
+- name: first_included_day_when_period_starts_at_beginning_of_day
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Day
+  source: BGB § 187 Abs. 2 Satz 1
+  description: The specified beginning-of-day date is included unchanged; this helper
+    does not determine which deadline regime applies or calculate a deadline end.
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: Ist der Beginn eines Tages der für den Anfang einer Frist maßgebende
+            Zeitpunkt, so wird dieser Tag bei der Berechnung der Frist mitgerechnet.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: beginning_of_day_start_date
+- name: first_included_day_for_life_age_calculation
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Day
+  source: BGB § 187 Abs. 2 Satz 2
+  description: The recorded birth date is included unchanged for calculating life
+    age; this helper is not a complete legal age calculation.
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: Das Gleiche gilt von dem Tage der Geburt bei der Berechnung des
+            Lebensalters.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: recorded_birth_date

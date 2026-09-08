@@ -1,0 +1,49 @@
+- name: event_and_date_inclusion_boundaries
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-03-21'
+    end: '2025-03-21'
+  input: {}
+  tables:
+    Person:
+    - de:statutes/bgb/187#input.event_or_intraday_timepoint_date: '2025-03-21'
+      de:statutes/bgb/187#input.beginning_of_day_start_date: '2025-03-21'
+      de:statutes/bgb/187#input.recorded_birth_date: '2000-03-21'
+    - de:statutes/bgb/187#input.event_or_intraday_timepoint_date: '2025-01-31'
+      de:statutes/bgb/187#input.beginning_of_day_start_date: '2025-01-31'
+      de:statutes/bgb/187#input.recorded_birth_date: '2001-01-31'
+    - de:statutes/bgb/187#input.event_or_intraday_timepoint_date: '2024-12-31'
+      de:statutes/bgb/187#input.beginning_of_day_start_date: '2024-12-31'
+      de:statutes/bgb/187#input.recorded_birth_date: '2002-12-31'
+    - de:statutes/bgb/187#input.event_or_intraday_timepoint_date: '2024-02-28'
+      de:statutes/bgb/187#input.beginning_of_day_start_date: '2024-02-28'
+      de:statutes/bgb/187#input.recorded_birth_date: '2004-02-28'
+    - de:statutes/bgb/187#input.event_or_intraday_timepoint_date: '2025-02-28'
+      de:statutes/bgb/187#input.beginning_of_day_start_date: '2025-02-28'
+      de:statutes/bgb/187#input.recorded_birth_date: '2005-02-28'
+    - de:statutes/bgb/187#input.event_or_intraday_timepoint_date: '2024-02-29'
+      de:statutes/bgb/187#input.beginning_of_day_start_date: '2024-02-29'
+      de:statutes/bgb/187#input.recorded_birth_date: '2008-02-29'
+  output:
+    de:statutes/bgb/187#first_included_day_after_event_or_intraday_timepoint:
+    - 2025-03-22
+    - 2025-02-01
+    - 2025-01-01
+    - 2024-02-29
+    - 2025-03-01
+    - 2024-03-01
+    de:statutes/bgb/187#first_included_day_when_period_starts_at_beginning_of_day:
+    - 2025-03-21
+    - 2025-01-31
+    - 2024-12-31
+    - 2024-02-28
+    - 2025-02-28
+    - 2024-02-29
+    de:statutes/bgb/187#first_included_day_for_life_age_calculation:
+    - 2000-03-21
+    - 2001-01-31
+    - 2002-12-31
+    - 2004-02-28
+    - 2005-02-28
+    - 2008-02-29
