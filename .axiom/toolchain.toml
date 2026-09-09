@@ -2,6 +2,6 @@
 # exactly one immutable signed corpus release; the shared validate workflow
 # verifies the release object signature, content hash, and waiver-set hash.
 [toolchain]
-axiom_corpus_release = "de-rulespec-2026-09-09-kindergeld-eu-articles"
-axiom_corpus_release_content_sha256 = "a2c37b8785ff517c496a5041bb70e4dcd32f2dd83467c1c671b639588e0afb20"
+axiom_corpus_release = "de-rulespec-2026-09-09-kindergeld-estg32-paragraphs"
+axiom_corpus_release_content_sha256 = "0add0ea71ec1434710040a06cf9ab0e66860a03b09519317662f2a503502cc32"
 validation_waiver_set_sha256 = "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
