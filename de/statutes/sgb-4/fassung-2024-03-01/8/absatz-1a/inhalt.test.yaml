@@ -1,0 +1,21 @@
+- name: Marginal employment threshold in March 2024
+  period: 2024-03
+  input: {}
+  output:
+    de:regulations/milov4/1#hourly_minimum_wage: 12.41
+    de:statutes/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt#marginal_employment_monthly_earnings_threshold_unrounded: '537.76666666666666666666666667'
+    de:statutes/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt#marginal_employment_monthly_earnings_threshold: 538
+- name: Marginal employment threshold in January 2025
+  period: 2025-01
+  input: {}
+  output:
+    de:regulations/milov4/1#hourly_minimum_wage: 12.82
+    de:statutes/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt#marginal_employment_monthly_earnings_threshold_unrounded: '555.53333333333333333333333333'
+    de:statutes/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt#marginal_employment_monthly_earnings_threshold: 556
+- name: Marginal employment threshold in December 2025
+  period: 2025-12
+  input: {}
+  output:
+    de:regulations/milov4/1#hourly_minimum_wage: 12.82
+    de:statutes/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt#marginal_employment_monthly_earnings_threshold_unrounded: '555.53333333333333333333333333'
+    de:statutes/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt#marginal_employment_monthly_earnings_threshold: 556
