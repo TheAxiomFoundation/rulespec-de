@@ -1,0 +1,138 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/estg/78
+    source_sha256: 7105366cec1d12d8fb02bc1a87c7fd268517a0701b159e2134db5e0e7dc999a8
+  summary: '§ 78 Abs. 5 Satz 1 refers to persons who received Kindergeld for their
+    children for
+
+    Dezember 1990. Satz 2 applies § 64 Abs. 2 und 3 from the beginning of the month
+    in
+
+    which an application directed to that end was received by the competent office.
+    The
+
+    executable helpers are record/date predicates only: they do not establish residence,
+
+    habitual abode, treaty territory, office competence, lawful prior payment, child
+
+    qualification, continuing priority, or successor entitlement.'
+  deferred_outputs:
+  - output: de:statutes/estg/78/5#transition_adjusted_recipient_priority
+    blocked_by:
+    - de:statutes/estg/64#recipient_priority
+    reason: de/statute/estg/78(5) cannot compute the full transition-adjusted recipient
+      selection, including the ordinary-priority fallback, because the source explicitly
+      applies § 64 Absatz 2 und 3 and the executable upstream output de:statutes/estg/64#recipient_priority
+      is missing. This leaves continuing residence, continuing child qualification,
+      Article 3 treaty territory, office competence, preserved priority and successor
+      selection unimplemented; the receipt cutoff alone does not establish them.
+  - output: de:statutes/estg/78/5/satz-2#sentence_1_payments_credited_to_successor_for_same_child
+    blocked_by:
+    - de:statutes/estg/64#recipient_priority
+    reason: de/statute/estg/78(5)(satz-2) cannot compute crediting of sentence 1 payments
+      to the successor for the same child because § 64 Absatz 2 und 3 requires the
+      missing executable upstream output de:statutes/estg/64#recipient_priority. Lawful
+      sentence 1 payment and same-child matching also remain unimplemented.
+inputs:
+- name: kindergeld_payment_record_exists
+  entity: Person
+  dtype: Boolean
+  period: Month
+- name: kindergeld_payment_record_reference_year
+  entity: Person
+  dtype: Integer
+  period: Month
+- name: kindergeld_payment_record_reference_month
+  entity: Person
+  dtype: String
+  period: Month
+- name: application_for_section_64_priority_received
+  entity: Person
+  dtype: Boolean
+  period: Month
+- name: application_receipt_date
+  entity: Person
+  dtype: Date
+  period: Month
+rules:
+- name: december_1990_reference_year
+  kind: parameter
+  dtype: Integer
+  source: § 78 Abs. 5 Satz 1 EStG
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/estg/78
+          excerpt: für Dezember 1990
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '1990'
+- name: december_reference_month
+  kind: parameter
+  dtype: String
+  source: § 78 Abs. 5 Satz 1 EStG
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/estg/78
+          excerpt: für Dezember 1990
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '"Dezember"'
+- name: payment_record_matches_december_1990_reference_period
+  kind: derived
+  entity: Person
+  dtype: Judgment
+  period: Month
+  source: § 78 Abs. 5 Satz 1 EStG
+  description: Record predicate only. It does not establish residence, habitual abode,
+    treaty territory, office competence, lawful prior payment, child qualification,
+    continuing priority, or successor entitlement.
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/statute/estg/78
+          excerpt: die für Dezember 1990 für ihre Kinder Kindergeld in dem in Artikel
+            3 des Einigungsvertrages genannten Gebiet bezogen haben
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'kindergeld_payment_record_exists
+
+      and kindergeld_payment_record_reference_year == december_1990_reference_year
+
+      and kindergeld_payment_record_reference_month == december_reference_month'
+- name: application_receipt_is_by_query_month_end
+  kind: derived
+  entity: Person
+  dtype: Judgment
+  period: Month
+  source: § 78 Abs. 5 Satz 2 EStG
+  description: Date predicate only. It does not establish residence, habitual abode,
+    treaty territory, office competence, lawful prior payment, child qualification,
+    continuing priority, or successor entitlement.
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/statute/estg/78
+          excerpt: vom Beginn des Monats an anzuwenden, in dem ein hierauf gerichteter
+            Antrag bei der zuständigen Stelle eingegangen ist
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'application_for_section_64_priority_received
+
+      and application_receipt_date <= period_end'
