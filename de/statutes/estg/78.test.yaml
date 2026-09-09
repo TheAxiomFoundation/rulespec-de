@@ -1,0 +1,77 @@
+- name: December 1990 reference payment and prior-month receipt
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: true
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1990
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: Dezember
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: true
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-05-31'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: holds
+- name: Different payment record year does not satisfy December 1990 reference
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: true
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1991
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: Dezember
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: true
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-06-01'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: not_holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: holds
+- name: Different payment reference month and last-day receipt
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: true
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1990
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: November
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: true
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-06-30'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: not_holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: holds
+- name: Absent payment record and next-month receipt do not meet transition primitives
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: false
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1990
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: Dezember
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: true
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-07-01'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: not_holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: not_holds
+- name: Absent application receipt does not reach receipt cutoff
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: true
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1990
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: Dezember
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: false
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-06-30'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: not_holds
+- name: Different payment reference month does not satisfy December reference
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: true
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1990
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: November
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: true
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-06-30'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: not_holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: holds
+- name: Absent payment record and future receipt do not meet transition primitives
+  period: 2025-06
+  input:
+    de:statutes/estg/78#input.has_kindergeld_payment_record_for_child: false
+    de:statutes/estg/78#input.kindergeld_payment_reference_year: 1990
+    de:statutes/estg/78#input.kindergeld_payment_reference_month: Dezember
+    de:statutes/estg/78#input.relevant_section_64_application_was_received: true
+    de:statutes/estg/78#input.relevant_section_64_application_receipt_date: '2025-07-01'
+  output:
+    de:statutes/estg/78#kindergeld_was_received_for_december_1990: not_holds
+    de:statutes/estg/78#section_64_application_receipt_cutoff_reached: not_holds
