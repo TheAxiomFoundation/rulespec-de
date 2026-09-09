@@ -1,0 +1,102 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/estg/32/absatz-3/document-1
+    source_sha256: 024328471bff999d0b5c974ba6c5092a96ec6bb38b420d3cbd110fcc1db11a1c
+  summary: (3) Ein Kind wird in dem Kalendermonat, in dem es lebend geboren wurde,
+    und in jedem folgenden Kalendermonat, zu dessen Beginn es das 18. Lebensjahr noch
+    nicht vollendet hat, berücksichtigt.
+inputs:
+- name: live_birth_register_entry_exists
+  entity: Person
+  dtype: Boolean
+  period: Month
+- name: recorded_live_birth_date
+  entity: Person
+  dtype: Date
+  period: Month
+rules:
+- name: child_age_limit_years
+  kind: parameter
+  dtype: Integer
+  period: Month
+  source: de/statute/estg/32/absatz-3/document-1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/estg/32/absatz-3/document-1
+          excerpt: das 18. Lebensjahr noch nicht vollendet hat
+  versions:
+  - effective_from: '2025-01-01'
+    formula: '18'
+- name: eighteenth_birthday_attainment_date
+  kind: derived
+  entity: Person
+  dtype: Date
+  period: Month
+  source: de/statute/bgb/187; de/statute/bgb/188
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/estg/32/absatz-3/document-1
+          excerpt: das 18. Lebensjahr noch nicht vollendet hat
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/187
+          excerpt: (2) Ist der Beginn eines Tages der für den Anfang einer Frist maßgebende
+            Zeitpunkt, so wird dieser Tag bei der Berechnung der Frist mitgerechnet.
+            Das Gleiche gilt von dem Tage der Geburt bei der Berechnung des Lebensalters.
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/188
+          excerpt: '(2) Eine Frist, die nach Wochen, nach Monaten oder nach einem
+            mehrere Monate umfassenden Zeitraum - Jahr, halbes Jahr, Vierteljahr -
+            bestimmt ist, endigt im Falle des § 187 Abs. 1 mit dem Ablauf desjenigen
+            Tages der letzten Woche oder des letzten Monats, welcher durch seine Benennung
+            oder seine Zahl dem Tage entspricht, in den das Ereignis oder der Zeitpunkt
+            fällt, im Falle des § 187 Abs. 2 mit dem Ablauf desjenigen Tages der letzten
+            Woche oder des letzten Monats, welcher dem Tage vorhergeht, der durch
+            seine Benennung oder seine Zahl dem Anfangstag der Frist entspricht.
+
+            (3) Fehlt bei einer nach Monaten bestimmten Frist in dem letzten Monat
+            der für ihren Ablauf maßgebende Tag, so endigt die Frist mit dem Ablauf
+            des letzten Tages dieses Monats.'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'if date_add_years(date_add_years(recorded_live_birth_date, child_age_limit_years),
+      -child_age_limit_years) != recorded_live_birth_date: date_add_days(date_add_years(recorded_live_birth_date,
+      child_age_limit_years), 1) else: date_add_years(recorded_live_birth_date, child_age_limit_years)'
+- name: child_considered
+  kind: derived
+  entity: Person
+  dtype: Judgment
+  period: Month
+  source: de/statute/estg/32/absatz-3/document-1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/estg/32/absatz-3/document-1
+          excerpt: '(3) Ein Kind wird in dem Kalendermonat, in dem es lebend geboren
+            wurde, und in jedem folgenden
+
+            Kalendermonat, zu dessen Beginn es das 18. Lebensjahr noch nicht vollendet
+            hat, berücksichtigt.'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: "live_birth_register_entry_exists\nand (\n  (recorded_live_birth_date\
+      \ >= period_start and recorded_live_birth_date <= period_end)\n  or (\n    recorded_live_birth_date\
+      \ < period_start\n    and period_start < eighteenth_birthday_attainment_date\n\
+      \  )\n)"
