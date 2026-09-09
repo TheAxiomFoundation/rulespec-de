@@ -1,0 +1,105 @@
+format: rulespec/v1
+imports:
+- de:regulations/milov4/1#hourly_minimum_wage
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+    source_sha256: 03d0e9d5277f6ee048798a2ca4bf61c1a9b853da0177150576c2cc09edbd9939
+  summary: Die Geringfügigkeitsgrenze bezeichnet das monatliche Arbeitsentgelt bei
+    zehn Wochenstunden zum Mindestlohn; sie wird berechnet, indem der Mindestlohn
+    mit 130 vervielfacht, durch drei geteilt und auf volle Euro aufgerundet wird.
+    Sie wird vom Bundesministerium für Arbeit und Soziales im Bundesanzeiger bekannt
+    gegeben.
+rules:
+- name: minimum_wage_multiplier
+  kind: parameter
+  dtype: Decimal
+  period: Month
+  source: SGB IV § 8 Absatz 1a Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+          excerpt: Mindestlohn mit 130 vervielfacht
+  versions:
+  - effective_from: '2024-03-01'
+    effective_to: '2025-12-31'
+    formula: '130'
+- name: minimum_wage_divisor
+  kind: parameter
+  dtype: Decimal
+  period: Month
+  source: SGB IV § 8 Absatz 1a Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: parameter
+        source:
+          corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+          excerpt: durch drei geteilt
+  versions:
+  - effective_from: '2024-03-01'
+    effective_to: '2025-12-31'
+    formula: '3'
+- name: marginal_employment_monthly_earnings_threshold_unrounded
+  kind: derived
+  entity: Household
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: SGB IV § 8 Absatz 1a Satz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: import
+        import:
+          target: de:regulations/milov4/1#hourly_minimum_wage
+          output: hourly_minimum_wage
+          hash: sha256:5c2a3c6fb50a7b4e46b085807d455a14be2d88dfd71191f6d4fe856b1b7245ec
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+          excerpt: indem der Mindestlohn mit 130 vervielfacht, durch drei geteilt
+      - path: versions[0].formula
+        kind: definition
+        source:
+          corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+          excerpt: monatliche Arbeitsentgelt, das bei einer Arbeitszeit von zehn Wochenstunden
+            zum Mindestlohn
+  versions:
+  - effective_from: '2024-03-01'
+    effective_to: '2025-12-31'
+    formula: hourly_minimum_wage * minimum_wage_multiplier / minimum_wage_divisor
+- name: marginal_employment_monthly_earnings_threshold
+  kind: derived
+  entity: Household
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: SGB IV § 8 Absatz 1a Satz 1 und 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+          excerpt: auf volle Euro aufgerundet
+      - path: versions[0].formula
+        kind: definition
+        source:
+          corpus_citation_path: de/statute/sgb-4/fassung-2024-03-01/8/absatz-1a/inhalt
+          excerpt: Die Geringfügigkeitsgrenze im Sinne des Sozialgesetzbuchs bezeichnet
+            das monatliche Arbeitsentgelt
+  versions:
+  - effective_from: '2024-03-01'
+    effective_to: '2025-12-31'
+    formula: ceil(marginal_employment_monthly_earnings_threshold_unrounded)
