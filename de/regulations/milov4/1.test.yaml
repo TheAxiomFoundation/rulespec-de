@@ -3,8 +3,18 @@
   input: {}
   output:
     de:regulations/milov4/1#hourly_minimum_wage: 12.41
+- name: Hourly minimum wage in December 2024
+  period: 2024-12
+  input: {}
+  output:
+    de:regulations/milov4/1#hourly_minimum_wage: 12.41
 - name: Hourly minimum wage from January 2025
   period: 2025-01
+  input: {}
+  output:
+    de:regulations/milov4/1#hourly_minimum_wage: 12.82
+- name: Hourly minimum wage in December 2025
+  period: 2025-12
   input: {}
   output:
     de:regulations/milov4/1#hourly_minimum_wage: 12.82
