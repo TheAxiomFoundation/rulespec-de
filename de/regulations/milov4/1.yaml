@@ -1,0 +1,44 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/milov4/1
+    source_sha256: bd76f94563148e548fb4483c59670560724223d703b4739c86999686415da214
+  summary: Der Mindestlohn beträgt ab 1. Januar 2024 12,41 Euro brutto je Zeitstunde
+    und ab 1. Januar 2025 12,82 Euro brutto je Zeitstunde.
+rules:
+- name: hourly_minimum_wage
+  kind: parameter
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MiLoV4 § 1 Nr. 1 und 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/milov4/1
+          excerpt: ab 1. Januar 2024 | 12,41 Euro brutto je Zeitstunde
+      - path: versions[0].effective_from
+        kind: effective_period
+        source:
+          corpus_citation_path: de/regulation/milov4/1
+          excerpt: ab 1. Januar 2024
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/milov4/1
+          excerpt: ab 1. Januar 2025 | 12,82 Euro brutto je Zeitstunde
+      - path: versions[1].effective_from
+        kind: effective_period
+        source:
+          corpus_citation_path: de/regulation/milov4/1
+          excerpt: ab 1. Januar 2025
+  versions:
+  - effective_from: '2024-01-01'
+    formula: '12.41'
+  - effective_from: '2025-01-01'
+    formula: '12.82'
