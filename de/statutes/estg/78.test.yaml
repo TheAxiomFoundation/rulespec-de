@@ -1,0 +1,71 @@
+- name: independent payment records and application receipt cutoffs
+  period: 2025-03
+  input: {}
+  tables:
+    Person:
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-01'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: false
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-01'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1991
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-01'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Januar
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-01'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: false
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-01'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2024-12-31'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-01'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-03-31'
+    - de:statutes/estg/78#input.kindergeld_payment_record_exists: true
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_year: 1990
+      de:statutes/estg/78#input.kindergeld_payment_record_reference_month: Dezember
+      de:statutes/estg/78#input.application_for_section_64_priority_received: true
+      de:statutes/estg/78#input.application_receipt_date: '2025-04-01'
+  output:
+    de:statutes/estg/78#payment_record_matches_december_1990_reference_period:
+    - holds
+    - not_holds
+    - not_holds
+    - not_holds
+    - holds
+    - holds
+    - holds
+    - holds
+    - holds
+    de:statutes/estg/78#application_receipt_is_by_query_month_end:
+    - holds
+    - holds
+    - holds
+    - holds
+    - not_holds
+    - holds
+    - holds
+    - holds
+    - not_holds
