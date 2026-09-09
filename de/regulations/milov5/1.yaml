@@ -1,0 +1,49 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/milov5/1
+    source_sha256: f665e0bea526da0c6c035c7df44475e0759642c25cd15d36b5d69e5af129f84e
+  summary: Der Mindestlohn beträgt ab 1. Januar 2026 13,90 Euro brutto je Zeitstunde
+    und ab 1. Januar 2027 14,60 Euro brutto je Zeitstunde.
+rules:
+- name: hourly_minimum_wage
+  kind: parameter
+  dtype: Money
+  period: Month
+  unit: EUR
+  source: MiLoV5 § 1 Nr. 1 und 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/milov5/1
+          excerpt: ab 1. Januar 2026 | 13,90 Euro brutto je Zeitstunde
+      - path: versions[0].effective_from
+        kind: effective_period
+        source:
+          corpus_citation_path: de/regulation/milov5/1
+          excerpt: ab 1. Januar 2026
+      - path: versions[1].formula
+        kind: amount
+        source:
+          corpus_citation_path: de/regulation/milov5/1
+          excerpt: ab 1. Januar 2027 | 14,60 Euro brutto je Zeitstunde
+      - path: versions[1].effective_from
+        kind: effective_period
+        source:
+          corpus_citation_path: de/regulation/milov5/1
+          excerpt: ab 1. Januar 2027
+      - path: versions[0].formula
+        kind: unit
+        source:
+          corpus_citation_path: de/regulation/milov5/1
+          excerpt: Euro brutto je Zeitstunde
+  versions:
+  - effective_from: '2026-01-01'
+    formula: '13.90'
+  - effective_from: '2027-01-01'
+    formula: '14.60'

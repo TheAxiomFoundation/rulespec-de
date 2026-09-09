@@ -1,0 +1,15 @@
+- name: Hourly minimum wage 2026-01
+  period: 2026-01
+  input: {}
+  output:
+    de:regulations/milov5/1#hourly_minimum_wage: 13.9
+- name: Hourly minimum wage 2026-12
+  period: 2026-12
+  input: {}
+  output:
+    de:regulations/milov5/1#hourly_minimum_wage: 13.9
+- name: Hourly minimum wage 2027-01
+  period: 2027-01
+  input: {}
+  output:
+    de:regulations/milov5/1#hourly_minimum_wage: 14.6
