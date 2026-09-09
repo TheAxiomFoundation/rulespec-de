@@ -1,0 +1,251 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+    source_sha256: 206dec7f84e0da10111fcb51531e167f263bd385a792ef148a7768fa411abbb5
+  summary: „Ändern sich zwischen den Mitgliedstaaten während eines Kalendermonats
+    die Rechtsvorschriften und/oder die Zuständigkeit für die Gewährung von Familienleistungen,
+    so setzt der Träger ... die Zahlungen bis zum Ende des laufenden Monats fort.“
+    „Ab diesem Zeitpunkt übernehmen der andere betroffene Mitgliedstaat oder die anderen
+    betroffenen Mitgliedstaaten die Zahlung der Leistungen.“
+inputs:
+- name: coordination_decision_exists
+  entity: Family
+  dtype: Boolean
+  period: Month
+- name: beginning_of_month_payment_record_exists
+  entity: Family
+  dtype: Boolean
+  period: Month
+- name: recorded_effective_transition_date
+  entity: Family
+  dtype: Date
+  period: Month
+- name: coordination_decision_case_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: payment_record_case_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: coordination_decision_child_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: payment_record_child_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: beginning_of_month_payer_institution_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: current_institution_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: affected_institution_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: decision_originating_member_state_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: payment_record_originating_member_state_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: decision_receiving_member_state_id
+  entity: Family
+  dtype: String
+  period: Month
+- name: affected_institution_member_state_id
+  entity: Family
+  dtype: String
+  period: Month
+rules:
+- name: documented_change_in_query_month
+  kind: derived
+  entity: Family
+  dtype: Judgment
+  period: Month
+  source: Artikel 59 Absatz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: 'Ändern sich zwischen den Mitgliedstaaten während eines Kalen­
+
+            dermonats die Rechtsvorschriften und/oder die Zuständigkeit für die
+
+            Gewährung von Familienleistungen'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'coordination_decision_exists
+
+      and beginning_of_month_payment_record_exists
+
+      and coordination_decision_case_id == payment_record_case_id
+
+      and coordination_decision_child_id == payment_record_child_id
+
+      and decision_originating_member_state_id == payment_record_originating_member_state_id
+
+      and decision_receiving_member_state_id == affected_institution_member_state_id
+
+      and current_institution_id == beginning_of_month_payer_institution_id
+
+      and affected_institution_id != current_institution_id
+
+      and recorded_effective_transition_date >= period_start
+
+      and recorded_effective_transition_date <= period_end'
+- name: initial_payer_must_continue_family_benefit_payments
+  kind: derived
+  entity: Family
+  dtype: Judgment
+  period: Month
+  source: Artikel 59 Absatz 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: 'so setzt der Träger, der die Fami­
+
+            lienleistungen nach den Rechtsvorschriften gezahlt hat, nach denen die
+
+            Leistungen zu Beginn dieses Monats gewährt wurden, unabhängig von
+
+            den in den Rechtsvorschriften dieser Mitgliedstaaten für die Gewährung
+
+            von Familienleistungen vorgesehenen Zahlungsfristen die Zahlungen bis
+
+            zum Ende des laufenden Monats fort.'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: documented_change_in_query_month
+- name: initial_payer_cessation_date
+  kind: derived
+  entity: Family
+  dtype: Date
+  period: Month
+  source: Artikel 59 Absatz 1 und 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: die Zahlungen bis zum Ende des laufenden Monats fort.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: period_end
+- name: successor_handover_date
+  kind: derived
+  entity: Family
+  dtype: Date
+  period: Month
+  source: Artikel 59 Absatz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: 'Ab diesem Zeit­
+
+            punkt übernehmen der andere betroffene Mitgliedstaat oder die anderen
+
+            betroffenen Mitgliedstaaten die Zahlung der Leistungen.'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: date_add_days(period_end, 1)
+- name: initial_payer_must_notify_affected_institution_of_cessation
+  kind: derived
+  entity: Family
+  dtype: Judgment
+  period: Month
+  source: Artikel 59 Absatz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: Er unterrichtet den Träger des anderen betroffenen Mitgliedstaats
+            oder die anderen betroffenen Mitgliedstaaten von dem Zeitpunkt, zu dem
+            er die Zahlung dieser Familienleistungen einstellt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: documented_change_in_query_month
+- name: documented_preceding_month_change_for_successor
+  kind: derived
+  entity: Family
+  dtype: Judgment
+  period: Month
+  source: Artikel 59 Absatz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: condition
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: 'Ab diesem Zeit­
+
+            punkt übernehmen der andere betroffene Mitgliedstaat oder die anderen
+
+            betroffenen Mitgliedstaaten die Zahlung der Leistungen.'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'coordination_decision_exists
+
+      and beginning_of_month_payment_record_exists
+
+      and coordination_decision_case_id == payment_record_case_id
+
+      and coordination_decision_child_id == payment_record_child_id
+
+      and decision_receiving_member_state_id == affected_institution_member_state_id
+
+      and current_institution_id == affected_institution_id
+
+      and beginning_of_month_payer_institution_id == current_institution_id
+
+      and recorded_effective_transition_date >= date_add_months(period_start, -1)
+
+      and recorded_effective_transition_date <= date_add_days(period_start, -1)'
+- name: successor_must_take_over_family_benefit_payments
+  kind: derived
+  entity: Family
+  dtype: Judgment
+  period: Month
+  source: Artikel 59 Absatz 2
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/regulation/eu-987-2009/article-59/document-1
+          excerpt: 'Ab diesem Zeit­
+
+            punkt übernehmen der andere betroffene Mitgliedstaat oder die anderen
+
+            betroffenen Mitgliedstaaten die Zahlung der Leistungen.'
+  versions:
+  - effective_from: '2025-01-01'
+    formula: documented_preceding_month_change_for_successor
