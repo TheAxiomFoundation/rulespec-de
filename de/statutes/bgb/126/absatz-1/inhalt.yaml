@@ -1,0 +1,99 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/bgb/126/absatz-1/inhalt
+    source_sha256: 28ff8e921b9384a922dbc2ed654e199ae40fc5b5226306ecb2581a8cef3dffb0
+  summary: (1) Ist durch Gesetz schriftliche Form vorgeschrieben, so muss die Urkunde
+    von dem Aussteller eigenhändig durch Namensunterschrift oder mittels notariell
+    beglaubigten Handzeichens unterzeichnet werden.
+inputs:
+- name: statutory_written_form_is_required
+  entity: Document
+  dtype: Boolean
+  period: Day
+- name: document_issuer_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: document_version_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: signature_record_present
+  entity: Document
+  dtype: Boolean
+  period: Day
+- name: signature_is_handwritten_name_signature
+  entity: Document
+  dtype: Boolean
+  period: Day
+- name: signature_is_handmark
+  entity: Document
+  dtype: Boolean
+  period: Day
+- name: signature_signer_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: signature_document_version_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: signature_handmark_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: notarial_authentication_present
+  entity: Document
+  dtype: Boolean
+  period: Day
+- name: notarial_authentication_issuer_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: notarial_authentication_document_version_identifier
+  entity: Document
+  dtype: String
+  period: Day
+- name: notarial_authentication_handmark_identifier
+  entity: Document
+  dtype: String
+  period: Day
+rules:
+- name: issuer_signature_mechanism_documentarily_conforms
+  kind: derived
+  entity: Document
+  dtype: Judgment
+  period: Day
+  description: Documentary-evidence conformance with the issuer-signature mechanism
+    of BGB § 126 Absatz 1, applicable where statutory written form is required; this
+    is not a determination of global contract validity or of every legally available
+    writing substitute.
+  source: BGB § 126 Abs. 1
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bgb/126/absatz-1/inhalt
+          excerpt: (1) Ist durch Gesetz schriftliche Form vorgeschrieben, so muss
+            die Urkunde von dem Aussteller eigenhändig durch Namensunterschrift oder
+            mittels notariell beglaubigten Handzeichens unterzeichnet werden.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: "statutory_written_form_is_required\nand signature_record_present\nand\
+      \ document_issuer_identifier != \"\"\nand document_version_identifier != \"\"\
+      \nand signature_signer_identifier != \"\"\nand signature_signer_identifier ==\
+      \ document_issuer_identifier\nand signature_document_version_identifier != \"\
+      \"\nand signature_document_version_identifier == document_version_identifier\n\
+      and (\n  signature_is_handwritten_name_signature\n  or (\n    signature_is_handmark\n\
+      \    and notarial_authentication_present\n    and signature_handmark_identifier\
+      \ != \"\"\n    and notarial_authentication_handmark_identifier != \"\"\n   \
+      \ and signature_handmark_identifier == notarial_authentication_handmark_identifier\n\
+      \    and notarial_authentication_issuer_identifier != \"\"\n    and notarial_authentication_issuer_identifier\
+      \ == document_issuer_identifier\n    and notarial_authentication_document_version_identifier\
+      \ != \"\"\n    and notarial_authentication_document_version_identifier == document_version_identifier\n\
+      \  )\n)"
