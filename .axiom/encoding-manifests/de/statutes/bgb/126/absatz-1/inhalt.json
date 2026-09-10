@@ -1,0 +1,96 @@
+{
+  "applied_files": [
+    {
+      "path": "de/statutes/bgb/126/absatz-1/inhalt.yaml",
+      "sha256": "eddd00d7ac369c39641b3c82061a1e04369174184dc3ab08bab3b1e6044296e8"
+    },
+    {
+      "path": "de/statutes/bgb/126/absatz-1/inhalt.test.yaml",
+      "sha256": "07e778fd6e301c133a405b51e04ff4129f5f1cc166bd29958fe2fac37654e132"
+    }
+  ],
+  "axiom_encode_git": {
+    "commit": "7980ff8a445ead8fe2c29b5289d1b4006b506024",
+    "dirty_tracked": false,
+    "identity_source": "trusted-runtime-attestation",
+    "root": "/opt/axiom-verification/python/runtime-attestation.json",
+    "version": "0.2.1972",
+    "version_commit": "7980ff8a445ead8fe2c29b5289d1b4006b506024"
+  },
+  "axiom_encode_version": "0.2.1972",
+  "backend": "openai",
+  "citation": "de/statute/bgb/126/absatz-1/inhalt",
+  "context_manifest_file": "/home/runner/work/_temp/generated/target/_eval_workspaces/openai-gpt-5.6-sol/de-statute-bgb-126-absatz-1-inhalt/workspace/context-manifest.json",
+  "context_manifest_sha256": "3b9eaa8c9fddbabc1b246650b1915ba69dc9f22cdc9acab00f9dc033d5e7e46b",
+  "generated_at": "2026-09-10T22:21:50.264364+00:00",
+  "generated_output_file": "/home/runner/work/_temp/generated/target/openai-gpt-5.6-sol/statutes/bgb/126/absatz-1/inhalt.yaml",
+  "generated_output_root": "/home/runner/work/_temp/generated/target",
+  "generated_output_sha256": "eddd00d7ac369c39641b3c82061a1e04369174184dc3ab08bab3b1e6044296e8",
+  "generation_prompt_sha256": "9951802c71335f6c5ad5bd21df107c9d76e0e94bd8e9635c66c9dab0bcd978b5",
+  "model": "gpt-5.6-sol",
+  "run_id": "169e03a5",
+  "runner": "openai-gpt-5.6-sol",
+  "schema_version": "axiom-encode/applied-rulespec/v5",
+  "signature": {
+    "algorithm": "ed25519-domain-v1",
+    "key_id": "sha256:24a78725a23b1c83cfc38bdc22f75401d8008e7a8477796b55179d1fc79c4d9a",
+    "value": "F66MNkPb1ieYH6oOmXN1gVjwnHx+uQyBJhn27YWZTWRRyU9e5vM0hHxQlpyFPoLntE8v84lbgsmlxkSA7D7eDg=="
+  },
+  "source_attestation": {
+    "component_rows": [],
+    "corpus_release": "de-rulespec-2026-09-10-kindergeld-generations-service",
+    "corpus_release_content_sha256": "4a647d949a6f2a650d873ad45672f783bc0d013b7ecbc107d77c955221fec982",
+    "corpus_release_selector_sha256": "5d048faacf21ec2df0934a56b9af629787810fd44cda37044258fb37d9d84f71",
+    "corpus_source": "local",
+    "expression_date": "2026-09-10",
+    "generation_input_sha256": "28ff8e921b9384a922dbc2ed654e199ae40fc5b5226306ecb2581a8cef3dffb0",
+    "provision_file": "data/corpus/provisions/de/statute/2026-09-10-de-kindergeld-generations-service.jsonl",
+    "provision_file_sha256": "e01cf228e16f051022d8fa6974beebeed25c293dc20c9e0e4d0df96fe91a79c0",
+    "requested_corpus_citation_path": "de/statute/bgb/126/absatz-1/inhalt",
+    "resolved_corpus_citation_path": "de/statute/bgb/126/absatz-1/inhalt",
+    "resolved_text_sha256": "28ff8e921b9384a922dbc2ed654e199ae40fc5b5226306ecb2581a8cef3dffb0",
+    "row": {
+      "body_sha256": "28ff8e921b9384a922dbc2ed654e199ae40fc5b5226306ecb2581a8cef3dffb0",
+      "citation_path": "de/statute/bgb/126/absatz-1/inhalt",
+      "document_class": "statute",
+      "expression_date": "2026-09-10",
+      "jurisdiction": "de",
+      "line_number": 4,
+      "provision_file": "data/corpus/provisions/de/statute/2026-09-10-de-kindergeld-generations-service.jsonl",
+      "provision_file_sha256": "e01cf228e16f051022d8fa6974beebeed25c293dc20c9e0e4d0df96fe91a79c0",
+      "record_id": "366edf50-27a9-556e-a391-7f136dfbcd4d",
+      "source_as_of": "2026-09-10",
+      "source_path": "sources/de/statute/2026-09-10-de-kindergeld-generations-service/official-documents/de-bgb126-absatz-1.html",
+      "version": "2026-09-10-de-kindergeld-generations-service"
+    },
+    "rulespec_root": "rulespec-de/de",
+    "source_as_of": "2026-09-10",
+    "source_sha256": "28ff8e921b9384a922dbc2ed654e199ae40fc5b5226306ecb2581a8cef3dffb0"
+  },
+  "tool": "axiom-encode encode --apply",
+  "trace_file": "/home/runner/work/_temp/generated/target/traces/openai-gpt-5.6-sol/de-statute-bgb-126-absatz-1-inhalt.json",
+  "trace_sha256": "1845a3f4ac7c97dde7d46c734cd037cb7ecde8f9c5edf46cc16d83e3a9f6c7db",
+  "validation_execution": {
+    "axiom_encode": {
+      "commit": "7980ff8a445ead8fe2c29b5289d1b4006b506024",
+      "identity_source": "trusted-runtime-attestation",
+      "repository": "github.com/TheAxiomFoundation/axiom-encode",
+      "version": "0.2.1972"
+    },
+    "axiom_rules_engine": {
+      "commit": "f6b0d15246a7db1403836628576f11e0d334348c",
+      "repository": "github.com/TheAxiomFoundation/axiom-rules-engine"
+    },
+    "policy_pre_apply": {
+      "pre_apply_content_sha256": "ddf0959085009e4828d42c29a054bf91a44ff3bb16ddaa1b4a9f22c842de42ed",
+      "pre_apply_file_count": 35,
+      "rulespec_root": "rulespec-de/de",
+      "toolchain_contract_sha256": "100477face9a44ca0f90d3faa3daf11dc0fb9929df65f8176f3e43faf6bc1bd6",
+      "validation_waiver_set_sha256": "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
+    },
+    "rulespec_dependencies": [],
+    "rulespec_scope": "full_checkout",
+    "schema": "axiom-encode/apply-validation-execution/v2"
+  },
+  "validation_waiver_set_sha256": "e07dcd30add9a01cd05f46b1f3b1d8ea60d8c98eba5fadfd0d9f4118714ba364"
+}

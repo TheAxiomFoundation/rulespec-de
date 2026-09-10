@@ -1,0 +1,322 @@
+- name: handwritten_name_signature_conforms
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handwritten_name_signature
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: holds
+- name: authenticated_handmark_conforms
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 1
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: holds
+- name: absent_signature_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handwritten_name_signature
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: typed_name_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: typed_name
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: handwritten_signature_by_other_issuer_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handwritten_name_signature
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 2
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: handwritten_signature_for_other_document_version_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handwritten_name_signature
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 2
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: handmark_without_authentication_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 1
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: authentication_for_other_handmark_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 2
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: authentication_by_other_issuer_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 2
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 1
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: authentication_for_other_document_version_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 2
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 1
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: authentication_for_unrelated_document_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 2
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 2
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 2
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: blank_handmark_identity_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handmark
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: blank_issuer_identity_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handwritten_name_signature
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
+- name: blank_document_identity_does_not_conform
+  period:
+    period_kind: custom
+    name: day
+    start: '2025-01-01'
+    end: '2025-01-01'
+  input:
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_is_present: true
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_observed_physical_method: handwritten_name_signature
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_issuer_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_document_version_identifier: 1
+    de:statutes/bgb/126/absatz-1/inhalt#input.signature_handmark_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.issued_notarial_authentication_is_present: false
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_issuer_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_document_version_identifier: 0
+    de:statutes/bgb/126/absatz-1/inhalt#input.notarial_authentication_handmark_identifier: 0
+  output:
+    de:statutes/bgb/126/absatz-1/inhalt#issuer_signature_mechanism_documentarily_conforms: not_holds
