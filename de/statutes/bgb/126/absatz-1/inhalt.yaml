@@ -5,17 +5,11 @@ module:
   source_verification:
     corpus_citation_path: de/statute/bgb/126/absatz-1/inhalt
     source_sha256: 28ff8e921b9384a922dbc2ed654e199ae40fc5b5226306ecb2581a8cef3dffb0
-  summary: '„(1) Ist durch Gesetz schriftliche Form vorgeschrieben, so muss die Urkunde
-    von dem Aussteller eigenhändig durch Namensunterschrift oder mittels notariell
-    beglaubigten Handzeichens unterzeichnet werden.“
+  summary: '(1) Ist durch Gesetz schriftliche Form vorgeschrieben, so muss die Urkunde
 
+    von dem Aussteller eigenhändig durch Namensunterschrift oder mittels
 
-    This module tests only documentary conformance with those issuer-signature mechanisms,
-    not whether a statute requires written form or whether another writing substitute
-    is valid. 2025-01-01 is the consumer observation boundary, not statutory commencement.
-    Paragraphs 2–5, electronic and notarial writing substitutes, legal capacity, assent,
-    and substantive eligibility remain separate source owners. Failure of this documentary
-    mechanism does not establish that every legally available writing substitute fails.'
+    notariell beglaubigten Handzeichens unterzeichnet werden.'
 inputs:
 - name: document_identifier
   entity: Document
