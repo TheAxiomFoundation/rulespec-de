@@ -1,0 +1,125 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: de/statute/bfdg/5
+    source_sha256: eef6e0dc2ef478dd2b29b8869e4d8e12eb6d1f601b3b1f054eef111cd387bf5b
+  summary: Bestehende Anerkennungen und die Möglichkeit neuer Anerkennungen von Trägern,
+    Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland nach § 14b Absatz 3
+    Zivildienstgesetz bleiben unberührt.
+rules:
+- name: provider_existing_recognitions_under_zdg_14b_3_remain_unaffected
+  kind: derived
+  entity: ServiceProvider
+  dtype: Judgment
+  period: Year
+  source: BFDG § 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bfdg/5
+          excerpt: Die bestehenden Anerkennungen sowie die Möglichkeit neuer Anerkennungen
+            von Trägern, Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland
+            nach § 14b Absatz 3 des Zivildienstgesetzes bleiben unberührt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'true'
+- name: provider_new_recognitions_under_zdg_14b_3_remain_possible
+  kind: derived
+  entity: ServiceProvider
+  dtype: Judgment
+  period: Year
+  source: BFDG § 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bfdg/5
+          excerpt: Die bestehenden Anerkennungen sowie die Möglichkeit neuer Anerkennungen
+            von Trägern, Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland
+            nach § 14b Absatz 3 des Zivildienstgesetzes bleiben unberührt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'true'
+- name: project_existing_recognitions_under_zdg_14b_3_remain_unaffected
+  kind: derived
+  entity: OverseasServiceProject
+  dtype: Judgment
+  period: Year
+  source: BFDG § 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bfdg/5
+          excerpt: Die bestehenden Anerkennungen sowie die Möglichkeit neuer Anerkennungen
+            von Trägern, Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland
+            nach § 14b Absatz 3 des Zivildienstgesetzes bleiben unberührt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'true'
+- name: project_new_recognitions_under_zdg_14b_3_remain_possible
+  kind: derived
+  entity: OverseasServiceProject
+  dtype: Judgment
+  period: Year
+  source: BFDG § 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bfdg/5
+          excerpt: Die bestehenden Anerkennungen sowie die Möglichkeit neuer Anerkennungen
+            von Trägern, Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland
+            nach § 14b Absatz 3 des Zivildienstgesetzes bleiben unberührt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'true'
+- name: deployment_plan_existing_recognitions_under_zdg_14b_3_remain_unaffected
+  kind: derived
+  entity: OverseasServiceDeploymentPlan
+  dtype: Judgment
+  period: Year
+  source: BFDG § 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bfdg/5
+          excerpt: Die bestehenden Anerkennungen sowie die Möglichkeit neuer Anerkennungen
+            von Trägern, Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland
+            nach § 14b Absatz 3 des Zivildienstgesetzes bleiben unberührt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'true'
+- name: deployment_plan_new_recognitions_under_zdg_14b_3_remain_possible
+  kind: derived
+  entity: OverseasServiceDeploymentPlan
+  dtype: Judgment
+  period: Year
+  source: BFDG § 5
+  metadata:
+    proof:
+      atoms:
+      - path: versions[0].formula
+        kind: formula
+        source:
+          corpus_citation_path: de/statute/bfdg/5
+          excerpt: Die bestehenden Anerkennungen sowie die Möglichkeit neuer Anerkennungen
+            von Trägern, Vorhaben und Einsatzplänen des Anderen Dienstes im Ausland
+            nach § 14b Absatz 3 des Zivildienstgesetzes bleiben unberührt.
+  versions:
+  - effective_from: '2025-01-01'
+    formula: 'true'

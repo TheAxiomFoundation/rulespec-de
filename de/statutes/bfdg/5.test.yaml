@@ -1,0 +1,30 @@
+- name: provider_recognition_preservation_in_supported_observation_period
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/bfdg/5#provider_existing_recognitions_under_zdg_14b_3_remain_unaffected: holds
+    de:statutes/bfdg/5#provider_new_recognitions_under_zdg_14b_3_remain_possible: holds
+- name: project_recognition_preservation_in_supported_observation_period
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input: {}
+  output:
+    de:statutes/bfdg/5#project_existing_recognitions_under_zdg_14b_3_remain_unaffected: holds
+    de:statutes/bfdg/5#project_new_recognitions_under_zdg_14b_3_remain_possible: holds
+- name: deployment_plan_recognition_preservation_in_supported_observation_period
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2025-01-01'
+    end: '2025-12-31'
+  input: {}
+  output:
+    de:statutes/bfdg/5#deployment_plan_existing_recognitions_under_zdg_14b_3_remain_unaffected: holds
+    de:statutes/bfdg/5#deployment_plan_new_recognitions_under_zdg_14b_3_remain_possible: holds
