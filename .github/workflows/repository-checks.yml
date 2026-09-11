@@ -13,7 +13,7 @@ jobs:
     with:
       axiom-encode-ref: b041b6b5a0e39f2c05c93669f354f8a54e9a84c3
       axiom-rules-engine-ref: af6e4ea2920b0c0a97bf6a6f45b0c6643e93c0ca
-      axiom-corpus-ref: 279e27503c00ce1fab35809d069c076d3abad362
+      axiom-corpus-ref: 3551d366ec6fa276acc193276abafdfbdbf122ca
       rulespec-us-ref: 0f291b367bf7e15555f9973112278c5cbf221653
       validate-roots: auto
       run-generated-guard: true
