@@ -12,7 +12,7 @@ jobs:
     secrets: inherit
     with:
       axiom-encode-ref: b041b6b5a0e39f2c05c93669f354f8a54e9a84c3
-      axiom-rules-engine-ref: f6b0d15246a7db1403836628576f11e0d334348c
+      axiom-rules-engine-ref: f19b03a6aafc9503c943510bc7946127e291784f
       axiom-corpus-ref: 279e27503c00ce1fab35809d069c076d3abad362
       rulespec-us-ref: 0f291b367bf7e15555f9973112278c5cbf221653
       validate-roots: auto
