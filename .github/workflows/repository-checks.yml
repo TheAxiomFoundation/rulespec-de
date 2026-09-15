@@ -11,7 +11,7 @@ jobs:
     uses: TheAxiomFoundation/.github/.github/workflows/validate-rulespec.yml@842c69d6aa62a0d75a4da850fabc3d0df20701d7
     secrets: inherit
     with:
-      axiom-encode-ref: b041b6b5a0e39f2c05c93669f354f8a54e9a84c3
+      axiom-encode-ref: 809dde9d0977da7880ce52f1d3432b06bcf00e69
       axiom-rules-engine-ref: af6e4ea2920b0c0a97bf6a6f45b0c6643e93c0ca
       axiom-corpus-ref: 4a2ab7fcbd24be76ccbd18ffee398abdfcc64ca2
       rulespec-us-ref: 0f291b367bf7e15555f9973112278c5cbf221653
