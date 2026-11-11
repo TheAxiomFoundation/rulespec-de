@@ -5,9 +5,24 @@ Axiom Foundation — RuleSpec corpus licensing
   International license (CC BY 4.0) — see LICENSE.
 - Incidental tooling and scripts (CI harnesses, runners, conversion utilities)
   are licensed under the Apache License 2.0 — see LICENSE-CODE.
-- The statutes, regulations, and other government documents these files encode
-  are edicts of government and remain in the public domain. No license is
-  claimed over the law itself.
+- We claim no rights in the statutes, regulations, and other government
+  documents these files encode. Neither license above covers them, or any of
+  their text that these files reproduce. "Source material" below cites the law
+  on their status.
 
 Suggested attribution: "Axiom Foundation RuleSpec corpus (CC BY 4.0),
 https://github.com/TheAxiomFoundation"
+
+Source material
+
+- German statutes, regulations, official decrees and announcements, court
+  decisions, and officially written headnotes to decisions have no copyright
+  protection (Urheberrechtsgesetz, sec. 5(1)). Other official works that
+  authorities publish in the official interest for general information share
+  that status, subject to the rules on alteration and source citation in secs.
+  62(1) to (3) and 63(1) and (2) (sec. 5(2)).
+- Regulation (EC) No 987/2009 comes from EUR-Lex. Unless otherwise specified,
+  the EU allows reuse of the legal documents published in EUR-Lex for
+  commercial or non-commercial purposes under Decision 2011/833/EU, and
+  licenses its consolidated texts under CC BY 4.0
+  (https://eur-lex.europa.eu/content/legal-notice/legal-notice.html).
